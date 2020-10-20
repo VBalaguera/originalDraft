@@ -67,3 +67,4 @@ function App() {
 
 export default App;
 
+COMMIT: git add SSH, git status to check out changes, git add -A to add all changed files, then git commit -m 'message'. FINAL: git push origin main plus passphrase. 
