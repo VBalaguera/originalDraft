@@ -1,0 +1,69 @@
+.flagship-content {
+    min-width: 25%; 
+    height: 15rem; 
+    flex: 1 1 auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 0 0.5rem 1rem; 
+    border: 1.7px solid black; 
+    overflow: hidden; 
+
+    &:hover {
+        cursor: pointer;
+
+        & .background-image {
+            transform: scale(1.05);
+            transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+            
+        }
+
+        & .container {
+            opacity: 0.9; 
+        }
+    }
+
+
+    &.large {
+        height: 25rem; 
+        width: 100%; 
+    }
+
+    &.medium {
+        height: 18rem;
+        width: 40%; 
+    }
+
+    &.small {
+        max-width: 33%; 
+    }
+
+    .background-image {
+        width: 100%; 
+        height: 100%; 
+        background-position: center;
+        background-size: cover; 
+    }
+
+    .flagship-container {
+        height: 7rem; 
+        padding: 0 2rem; 
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        background-color: rgba($color: black, $alpha: 0.3);
+        position: absolute; //background-image works this way
+
+        .flagship-secTitle {
+            font-size: 1.5rem;
+        }
+
+        .flagship-secSubtitle {
+            font-size: 1rem; 
+        }
+
+
+    }
+}

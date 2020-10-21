@@ -13,6 +13,7 @@ App
     Header 
     <Switch> PAGES HERE:
         Index.
+            Products by categories. //placeholder for future project 
         Products. 
         Categories. 
         FAQ.
@@ -68,3 +69,7 @@ function App() {
 export default App;
 
 COMMIT: git add SSH, git status to check out changes, git add -A to add all changed files, then git commit -m 'message'. FINAL: git push origin main plus passphrase. 
+
+created menu-item.component.jsx. Created monitor folder, component and such instead of directory. MONITOR REPLACES DIRECTORY. 
+
+CREATED FLAGSHIP (CLASS) Y FLAGSHIP CONTENT (FUNCT).  STYLING BOTH. 

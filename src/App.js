@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg'; //PENDING
 import './App.css';
 
-import Index from './pages/index.component'; 
+import Index from './pages/index/index.component'; 
 
 function App() {
   return (
