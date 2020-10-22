@@ -17,7 +17,7 @@ class Monitor extends React.Component {
                   imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                   size: 'medium',
                   id: 1,
-                  linkUrl: 'shop/hats'
+                  linkUrl: 'hats'
                 },
                 {
                   title: 'SXVII',
@@ -60,9 +60,9 @@ class Monitor extends React.Component {
         return (
             <div className='monitor-menu'>
                 {
-                    this.state.sections.map(({title, subtitle, imageUrl, id, size}) => (
+                    this.state.sections.map(({id, ...otherSectionsProps}) => (
                         
-                        <MenuItem key={id} title={title} subtitle={subtitle} imageUrl={imageUrl} size={size}/>
+                        <MenuItem key={id} {...otherSectionsProps}/>
                     ))
                 }
             </div>

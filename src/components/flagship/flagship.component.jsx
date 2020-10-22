@@ -19,7 +19,7 @@ class Flagship extends React.Component {
                   imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                   size: 'large',
                   id: 1,
-                  linkUrl: 'shop/hats'
+                  linkUrl: 'hats'
                 },
                 {
                   secTitle: 'SXVII',
@@ -27,7 +27,7 @@ class Flagship extends React.Component {
                   imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                   size: 'large',
                   id: 2,
-                  linkUrl: 'shop/jackets'
+                  linkUrl: 'jackets'
                 },
                 {
                   secTitle: 'SXIX',
@@ -35,7 +35,7 @@ class Flagship extends React.Component {
                   imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                   size: 'medium',
                   id: 3,
-                  linkUrl: 'shop/sneakers'
+                  linkUrl: 'sneakers'
                 },
                 {
                   secTitle: 'SXXI',
@@ -43,7 +43,7 @@ class Flagship extends React.Component {
                   imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                   size: 'medium',
                   id: 5,
-                  linkUrl: 'shop/mens'
+                  linkUrl: 'mens'
                 },
                 {
                     secTitle: 'NOVEDADES',
@@ -51,7 +51,7 @@ class Flagship extends React.Component {
                     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                     size: 'small',
                     id: 6,
-                    linkUrl: 'shop/hats'
+                    linkUrl: 'hats'
                   },
                   {
                     secTitle: 'SXVII',
@@ -59,7 +59,7 @@ class Flagship extends React.Component {
                     imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                     size: 'small',
                     id: 7,
-                    linkUrl: 'shop/jackets'
+                    linkUrl: 'jackets'
                   },
                   {
                     secTitle: 'SXIX',
@@ -67,7 +67,7 @@ class Flagship extends React.Component {
                     imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                     size: 'small',
                     id: 8,
-                    linkUrl: 'shop/sneakers'
+                    linkUrl: 'sneakers'
                   },
                   {
                     secTitle: 'SXIX',
@@ -75,7 +75,7 @@ class Flagship extends React.Component {
                     imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                     size: 'large',
                     id: 9,
-                    linkUrl: 'shop/sneakers'
+                    linkUrl: 'sneakers'
                   },
               ],
         }
@@ -86,8 +86,8 @@ class Flagship extends React.Component {
             <div className='flagship'>
 
                 {
-                    this.state.contents.map(({secTitle, secSubtitle, imageUrl, id, size}) => (
-                        <FlagshipContent key={id} secTitle={secTitle} secSubtitle={secSubtitle} imageUrl={imageUrl} size={size}/>
+                    this.state.contents.map(({id, ...otherContentsProps}) => (
+                        <FlagshipContent key={id} {...otherContentsProps}/>
                     ))
                 }
         </div>

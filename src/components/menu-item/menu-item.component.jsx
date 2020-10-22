@@ -1,12 +1,15 @@
 import React from 'react'; 
+import { withRouter } from 'react-router-dom'; //Just like this menu-item is a function that takes props and renders out a comp, a higher order component (a function that takes a comp as an arg and returns a modified comp). Is a function that gives you back a powdered component. Here, we are powering up menu-item comp to have access to the Router. 
 
 import './menu-item.styles.scss'; 
 
-const MenuItem = ({title, subtitle, imageUrl, size}) => ( //DESTRUCTURE THE TITLE 
+const MenuItem = ({title, subtitle, imageUrl, size, history, linkUrl, match}) => ( //DESTRUCTURE THE TITLE 
+    <div className={`${size} menu-item`} 
+    onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
     <div style={{
         backgroundImage: `url(${imageUrl})`
-    }}
-    className={`${size} menu-item`}>
+    }}/>
         <div className='contents'>
             <h1 className='title'> 
                 {title}
@@ -18,7 +21,7 @@ const MenuItem = ({title, subtitle, imageUrl, size}) => ( //DESTRUCTURE THE TITL
 </div>
 ); 
 
-export default MenuItem; 
+export default withRouter(MenuItem); //Router returns back a powdered menu-item comp with access to those location, match, and history props that we need to access to.  
 
 //to dynamically set content, we could just MenuItem = (props) and title.props for example. We won't. We DESTRUCTURE THE TITLE. 
 
