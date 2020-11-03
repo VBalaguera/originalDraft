@@ -1,3 +1,5 @@
+//FLAGSHIP EQUALS DIRECTORY/MONITOR 
+
 import React from 'react';
 
 import FlagshipContent from '../flagship-content/flagship-content.component'; 

@@ -1,0 +1,13 @@
+{
+    "parts": {
+        "intro": {
+            "title": "title",
+            "subtitle": "subtitle",
+            "category": "category"
+        },
+        "chapter1": {
+            "summary": "summary",
+            "longtext": "longtext"
+        }
+    }
+}

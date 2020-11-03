@@ -2,6 +2,16 @@
 
 * {
     font-family: 'Playfair Display', serif;
+/*     padding: 5px;  NO*/
+}
+
+body{
+    padding: 5px; 
+}
+
+a {
+    text-decoration: none;
+    color: black; 
 }
 
 .title {

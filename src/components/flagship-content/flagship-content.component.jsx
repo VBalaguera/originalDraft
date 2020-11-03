@@ -1,3 +1,4 @@
+//FLAGSHIP CONTENT EQUALS MENU ITEM
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -7,14 +8,14 @@ const FlagshipContent = ({secTitle, secSubtitle, imageUrl, size, history, linkUr
     <div 
     className={`${size} flagship-content`}
     onClick={() => history.push(`${match.url}${linkUrl}`)}>
-        <div className='background-image' 
+    <div className='background-image' 
             style={{
         backgroundImage: `url(${imageUrl})`
     }}
         />
         <div className='flagship-container'>
             <h1 className='flagship-secTitle'>
-                {secTitle}
+                {secTitle.toUpperCase()}
             </h1>
             <h2 className='flagship-secSubtitle'>
                 {secSubtitle}

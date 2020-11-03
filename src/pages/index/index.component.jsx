@@ -1,17 +1,14 @@
+//INDEX REPLACES HOMEPAGE
 import React from 'react';
 
 import Monitor from '../../components/monitor/monitor.component';
 import Flagship from '../../components/flagship/flagship.component';
-import Footer from '../../components/footer/footer.component';
-import About from '../../pages/about/about.component'; 
 import './index.styles.scss'; 
 
 const Index = () => (
     <div className='index'>
         <Flagship />
         <Monitor />
-        <About />
-        <Footer/>
     </div>
 );
 

@@ -246,3 +246,176 @@ this.state.sections.map(({id, ...otherSectionsProps}) => (
     <MenuItem key={id} {...otherSectionsProps}/>
 ))
 we need id for key. This is spreading props. 
+
+CREATING SHOP, COLLECTION PREVIEW, COLLECTIONITEM.
+ALSO: POSTS, CATEGORIES, AND CATEGORIESITEMS.
+
+shop.component.jsx: 
+
+import React from 'react';
+
+import './shop.data.js'; 
+
+import SHOP_DATA from './shop.styles.scss';
+
+class ShopPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            collections: SHOP_DATA
+        }
+    }
+
+    render() {
+        return (
+            <div>Shop Page</div>
+        );
+    }
+}
+
+export default ShopPage; 
+
+We are going to MOVE ALL THE STATE TO ANOTHER, SEPARATED FILE: shop.data.js. 
+
+Once we have this, collection-preview: 
+
+import React from 'react';
+
+import './collection-preview.styles..scss';
+
+const CollectionPreview = ({title, items}) => ( //state from ShopPage
+
+    <div className='collection-preview'> 
+
+        <h1 className='title'>{title.toUpperCase()}</h1>
+        <div className='preview'>
+            {
+                items.map(item => ( //mapping again all the state
+                    <div key={item.id}>{item.name}</div>
+                ))
+            }
+        </div>
+    </div>
+);
+
+export default CollectionPreview; 
+
+so, in shop.component we had this: 
+    render() {
+        return (
+            <div>Shop Page</div>
+        );
+    }
+and now we must have this: 
+    render() {
+        const {collections} = this.state; //state in this component 
+        return (<div className='shop-page'>
+                {
+                    collections.map(({id, ...otherCollectionProps}) => ( //spreading props and using id again
+                        <CollectionPreview key={id} {...otherCollectionProps}/>
+                    ))
+                }
+            </div>
+        );
+    }
+
+We need to modify the data so it only displays four items per category:
+            {
+                items.filter((item, idx) =>idx < 4)
+                    .map(item => (
+                    <div key={item.id}>{item.name}</div>
+                ))
+            }
+
+Every time we have a chain of modifications it will render again if the component gets rendered again. 
+
+So, to recap: we created a PAGE and FUNCT comp called SHOP/POSTS: 
+
+import React from 'react';
+
+import './posts.styles.scss'; 
+
+import Categories from '../../components/categories/categories.component'; 
+
+//using SHOP_DATA as a temp placeholder: 
+import SHOP_DATA from '../shop/shop.data.js';
+
+class PostsPage extends React.Component {
+    constructor(props) {
+        super(props); 
+
+        this.state = {
+            collections: SHOP_DATA //temporary placeholder
+        };
+    }
+
+    render() {
+        const {collections} = this.state; 
+        return(
+            
+            <div className='posts'>
+                <div className='identifier'>
+                    POSTS
+                </div>
+                {
+                    collections.map(({id, ...otherCollectionProps}) => (
+                        <Categories key={id} {...otherCollectionProps}/>
+                    ))
+                }
+            </div>
+        );
+    }
+};
+
+export default PostsPage; 
+
+These PAGES passes the state as props to  CollectionPreview/Categories: 
+
+import React from 'react';
+
+import './categories.styles.scss';
+
+const Categories = ({title, items}) => (
+    <div className='categories'>
+        <h1 className='title'>
+            {title.toUpperCase()}
+        </h1>
+        <div className='categories-items'>
+            {
+                items.filter((item, idx) => idx < 4)
+                .map(item => (
+                    <div key={item.id}>{item.name}</div>
+                ))
+            }
+        </div>
+    </div>
+);
+
+export default Categories; 
+
+Now: creating COLLECTION-ITEM and CATEGORIES-ITEM.
+
+Created BANNER. 
+
+NOTES ABOUT FILE NAMES: 
+//FLAGSHIP EQUALS DIRECTORY/MONITOR 
+//FLAGSHIP CONTENT EQUALS MENU ITEM
+
+//MONITOR REPLACES DIRECTORY
+//MONITOR EQUALS FLAGSHIP
+
+//INDEX REPLACES HOMEPAGE
+
+//POSTS EQUALS SHOP
+
+//CATEGORIES EQUALS COLLECTION PREVIEW
+
+//CATEGORIES ITEM EQUALS COLLECTION ITEM
+
+//SIGN IN AND SIGN UP PAGE 
+//FORM INPUT COMPONENT 
+
+//CUSTOM BUTTON COMP 
+
+//deep dive into differences between funct and class comps 

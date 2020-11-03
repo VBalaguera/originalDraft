@@ -1,4 +1,5 @@
-//MONITOR REPLACES DIRECTORY 
+//MONITOR REPLACES DIRECTORY
+//MONITOR EQUALS FLAGSHIP
 import React from 'react';
 
 import MenuItem from '../../components/menu-item/menu-item.component'; 

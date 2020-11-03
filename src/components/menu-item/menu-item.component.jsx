@@ -1,3 +1,4 @@
+//MENU ITEM EQUALS FLAGSHIP CONTENT
 import React from 'react'; 
 import { withRouter } from 'react-router-dom'; //Just like this menu-item is a function that takes props and renders out a comp, a higher order component (a function that takes a comp as an arg and returns a modified comp). Is a function that gives you back a powdered component. Here, we are powering up menu-item comp to have access to the Router. 
 
@@ -7,12 +8,13 @@ const MenuItem = ({title, subtitle, imageUrl, size, history, linkUrl, match}) =>
     <div className={`${size} menu-item`} 
     onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
-    <div style={{
+    <div className='background-image'
+    style={{
         backgroundImage: `url(${imageUrl})`
     }}/>
         <div className='contents'>
             <h1 className='title'> 
-                {title}
+                {title.toUpperCase()}
             </h1>
             <span className='subtitle'>
                 {subtitle}

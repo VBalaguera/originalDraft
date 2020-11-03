@@ -11,3 +11,4 @@ const AboutContent = ({title, summary, category}) => (
 );
 
 export default AboutContent; 
+
