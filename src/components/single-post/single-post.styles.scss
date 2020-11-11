@@ -1,0 +1,144 @@
+body::after {
+    position: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    opacity: 0.1; 
+}
+
+.text-main {
+    max-width: 95%; 
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: auto; 
+    padding: 3rem; 
+}
+
+.text-main-content {
+    display: flex; 
+    flex-direction: column; 
+}
+
+
+.text-main-upper {
+    text-align: center; 
+    margin: 1rem 0 3rem 0;
+}
+
+.text-main-upper h1 {
+    font-size: 5rem; 
+    font-weight: 700; 
+}
+.text-main-upper h3 {
+    font-size: 2rem; 
+    font-weight: 600; 
+}
+
+
+.text-main-info {
+    display: flex; 
+    align-items: center; 
+    margin: 1rem 0 1.5rem 0; 
+}
+h4, p {
+    margin-right: 1rem; 
+    font-size: 1.5rem; 
+}
+
+.text-main-content {
+    overflow: hidden;
+}
+
+.text-main-content div {
+    padding: 0.5rem 0; 
+}
+
+.secondary-titles {
+    font-size: 2.5rem; 
+    font-weight: 600; 
+    margin: 0.5rem 0 0.5rem; 
+}
+
+.text-main-content p {
+    font-size: 2rem; 
+}
+
+.quotes {
+    font-size: 2.5rem; 
+    font-style: italic;
+    text-align: center; 
+    margin: 0.5rem 0 0.5rem; 
+}
+
+.text-main-content-img1 {
+    text-align: center; 
+}
+
+.text-main-content img {
+    max-width: 40%;
+    height: auto; 
+}
+
+
+.related-content {
+    max-width: 95%; 
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: auto; 
+    padding: 1rem;  
+}
+
+.related-content-list {
+    list-style: none;
+}
+
+.related-content-list li {
+    margin: 1rem 0; 
+}
+
+.related-content-list li a {
+    font-size: 2rem; 
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .text-main {
+        padding: 0.5rem; 
+    }
+
+    .text-main-upper {
+        margin: 0.5rem 0 1rem 0; 
+    }
+
+    .text-main-upper h1 {
+        font-size: 2.5rem; 
+    }
+    
+    .text-main-upper h3 {
+        font-size: 1.5rem; 
+    }
+    .text-main-info {
+        margin: 1rem 0 0.5rem 0; 
+    }
+    h4, p {
+        margin-right: 1rem; 
+        font-size: 1rem; 
+    }
+
+    .text-main-content p {
+        font-size: 1.1rem; 
+        line-height: 1.6rem;
+    }
+    .secondary-titles {
+        font-size: 1.7rem; 
+    }
+    .quotes {
+        font-size: 1.4rem; 
+    }
+
+
+    .text-main-content-img1 img {
+        max-width: 90%;
+    }
+}

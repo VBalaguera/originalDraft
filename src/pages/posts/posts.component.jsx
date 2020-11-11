@@ -7,6 +7,7 @@ import Categories from '../../components/categories/categories.component';
 
 //using SHOP_DATA as a temp placeholder: 
 import POSTS_DATA from './post.data.js';
+import SinglePost from '../../components/single-post/single-post.component';
 
 class PostsPage extends React.Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class PostsPage extends React.Component {
                         <Categories key={id} {...otherCollectionProps}/>
                     ))
                 }
+                <SinglePost></SinglePost>
             </div>
         );
     }
