@@ -9,18 +9,23 @@
     .logo-container {
         height: 100%;
         width: 4.5rem;
-        padding: 1.5rem; 
+        padding: 2rem; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
     }
 
     .options {
         width: 50%;
         height: 100%; 
         display: flex; 
+        font-weight: bolder; 
         align-items: center;
         justify-content: flex-end;
+        margin: 1rem; 
 
         .option {
-            padding: 0.8rem 1.5rem;
+            padding: .8rem 1.5rem;
           }
     }
 }

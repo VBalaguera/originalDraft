@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header/header.component'; 
 import Index from './pages/index/index.component'; 
 import Banner from './components/banner/banner.component.jsx'; 
+import BreathPage from './pages/breath/breath.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx'; 
 import PostsPage from './pages/posts/posts.component.jsx'; 
 import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component.jsx';
@@ -19,6 +20,7 @@ function App() {
       <Banner/>
       <Switch>
         <Route exact path='/' component={Index}/>
+        <Route path='/breath' component={BreathPage}/>
         <Route path='/posts' component={PostsPage}/>
         <Route path='/shop' component={ShopPage}/>
         <Route path='/about' component={About}/>
