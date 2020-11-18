@@ -2,13 +2,38 @@ import React from 'react';
 
 import './custom-button.styles.scss';
 
+const CustomButton = ({ children, isGoogleSignIn, ...otherProps}) => (
+    <button className={`${isGoogleSignIn ? 'google-sign-in': ''} custom-button`} {...otherProps}>
+        {children}
+    </button>
+);
+
+export default CustomButton;
+
+/* firebase 19. 
+
+before: 
 const CustomButton = ({ children, ...otherProps}) => (
     <button className='custom-button' {...otherProps}>
         {children}
     </button>
 );
 
-export default CustomButton;
+after
+
+//we conditionally render using string interpolation: 
+
+const CustomButton = ({ children, isGoogleSignIn, ...otherProps}) => (
+
+    <button className={`${isGoogleSignIn ? 'google-sign-in': ''} custom-button`} {...otherProps}>
+        {children}
+    </button>
+
+    isGoogleSignIn is a prop, if the component has that prop, it will render with class google-sign-in, if not it will be an empty string; custom-button is always rendered
+);
+
+
+*/
 
 /*
 

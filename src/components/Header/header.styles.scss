@@ -8,7 +8,7 @@
 
     .logo-container {
         height: 100%;
-        width: 4.5rem;
+        width: 7rem;
         padding: 2rem; 
         display: flex; 
         align-items: center; 
@@ -27,5 +27,9 @@
         .option {
             padding: .8rem 1.5rem;
           }
+        
+        .option:hover {
+            cursor: pointer; 
+        }
     }
 }

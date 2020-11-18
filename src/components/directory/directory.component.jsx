@@ -2,9 +2,9 @@
 //MONITOR EQUALS FLAGSHIP
 import React from 'react';
 
-import MenuItem from '../../components/menu-item/menu-item.component'; 
+import MenuItem from '../menu-item/menu-item.component'; 
 
-import './monitor.styles.scss'; 
+import './directory.styles.scss'; 
 
 class Monitor extends React.Component {
     constructor() {

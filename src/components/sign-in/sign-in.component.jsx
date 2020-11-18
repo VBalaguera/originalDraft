@@ -56,9 +56,11 @@ class SignIn extends React.Component{
                 required></FormInput>
 
 
-                <CustomButton type="submit" value="Submit Form">SIGN IN </CustomButton>
+                <div className='buttons'>
+                    <CustomButton type="submit" value="Submit Form">SIGN IN </CustomButton>
 
-                <CustomButton onClick={signInWithGoogle}>SIGN IN with GOOGLE</CustomButton>
+                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn>SIGN IN with GOOGLE</CustomButton>
+                </div>
             </form>
         </div>
         )
@@ -66,3 +68,12 @@ class SignIn extends React.Component{
 }
 
 export default SignIn; 
+
+/* firebase 21.
+
+    before: 
+    <CustomButton onClick={signInWithGoogle}>SIGN IN with GOOGLE</CustomButton>
+
+    after: 
+    <CustomButton onClick={signInWithGoogle} isGoogleSignIn>SIGN IN with GOOGLE</CustomButton>
+*/
