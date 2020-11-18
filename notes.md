@@ -422,3 +422,8 @@ NOTES ABOUT FILE NAMES:
 
 
 
+//MODULE 7: WE'RE GOING TO FIREBASE, BABY
+
+We are going to use Firebase to store information. 
+yarn add firebase 
+

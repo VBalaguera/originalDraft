@@ -24,7 +24,7 @@ const SinglePost = () => (
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu auctor augue. Aliquam condimentum orci placerat mauris semper gravida. In odio urna, accumsan sit amet elit eget, commodo sodales sapien. Vestibulum cursus tincidunt pretium. Duis ultrices turpis a purus condimentum, et egestas purus pellentesque. Morbi nec lacus in dolor imperdiet iaculis. Nam venenatis suscipit vestibulum. Nam vitae justo risus. Phasellus aliquet odio quis libero consectetur gravida. Nulla feugiat volutpat metus, ac maximus ex dignissim efficitur. Sed ante tortor, blandit in consectetur pharetra, dictum vel arcu. Quisque quis ex cursus, sollicitudin enim a, consequat mi. Proin facilisis elementum ante.</p>
                 </div>
                 <div class="text-main-content-img1">
-                    <img src="/img/old-Madrid 001.jpg" alt=""></img>
+                    <img src="../../images/here there be monsters.png" alt=""></img>
                     <figcaption>Lorem ipsum dolor sit amet.</figcaption>
                 </div> 
                 <div class="text-main-content-2">

@@ -13,41 +13,41 @@ class Monitor extends React.Component {
         this.state = {
             sections: [
                 {
-                  title: 'NOVEDADES',
+                  title: 'Future News',
                   subtitle: 'test placeholder',
-                  imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+                  imageUrl: 'https://images.unsplash.com/photo-1595548381229-801503e72fdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
                   size: 'medium',
                   id: 1,
-                  linkUrl: 'hats'
+                  linkUrl: 'future-news'
                 },
                 {
                   title: 'SXVII',
                   subtitle: 'test placeholder',
-                  imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+                  imageUrl: 'https://images.unsplash.com/photo-1458909760068-5a3e1baf59c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=632&q=80',
                   size: 'medium',
                   id: 2,
                   linkUrl: 'shop/jackets'
                 },
                 {
-                  title: 'SXIX',
+                  title: 'Reviews',
                   subtitle: 'test placeholder',
-                  imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+                  imageUrl: 'https://images.unsplash.com/photo-1549837019-ad6f9df09180?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
                   size: 'medium',
                   id: 3,
                   linkUrl: 'shop/sneakers'
                 },
                 {
-                  title: 'SXX',
+                  title: 'Articles',
                   subtitle: 'test placeholder',
-                  imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+                  imageUrl: 'https://images.unsplash.com/photo-1605453170394-53a8cd4c495c?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
                   size: 'large',
                   id: 4,
                   linkUrl: 'shop/womens'
                 },
                 {
-                  title: 'SXXI',
+                  title: 'Recommendations',
                   subtitle: 'test placeholder',
-                  imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+                  imageUrl: 'https://images.unsplash.com/photo-1520962922320-2038eebab146?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
                   size: 'large',
                   id: 5,
                   linkUrl: 'shop/mens'
@@ -60,6 +60,9 @@ class Monitor extends React.Component {
     render() {
         return (
             <div className='monitor-menu'>
+              <div>
+                <h1 className='monitor-title'> This is the Monitor </h1>
+              </div>
                 {
                     this.state.sections.map(({id, ...otherSectionsProps}) => (
                         

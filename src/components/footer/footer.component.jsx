@@ -29,7 +29,7 @@ class Footer extends React.Component {
         });
     }
     render(){
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"];
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
         return(
