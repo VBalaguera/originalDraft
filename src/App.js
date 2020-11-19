@@ -1,5 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'; 
+// REDUX 11. 
+import { connect } from 'react-redux'; 
+
 import logo from './logo.svg'; //PENDING
 import './App.css';
 
@@ -7,7 +10,6 @@ import './App.css';
 import Header from './components/Header/header.component'; 
 import HomePage from './pages/homepage/homepage.component'; 
 import Banner from './components/banner/banner.component.jsx'; 
-import BreathPage from './pages/breath/breath.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx'; 
 import PostsPage from './pages/posts/posts.component.jsx'; 
 import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component.jsx';
@@ -15,77 +17,45 @@ import About from './pages/about/about.component';
 import Footer from './components/footer/footer.component'; 
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils.js'; 
-// (from firebase.utils.js)since we want to store the state of the user, and access the current user object, we need to convert this component into a class component
+
+
+// REDUX 11. cont: 
+import { setCurrentUser } from './redux/user/user.actions';
 
 class App extends React.Component {
-  constructor() {
-    super(); 
 
-    this.state = {
-      currentUser: null
-    }
-  }
 
-  // firebase 9. to fetch all data in the backend, and it will not do this again until this component gets rendered again; we do not want that. Firebase helps to do that; 
 
-  // firebase 10. onAuthStateChanged() uses: a function where the parameter is what the userState is on the auth on our firebase project with an object where currentUser is the user object
 
-  unsubscribeFromAuth = null
+  unsubscribeFromAuth = null; 
 
   componentDidMount() {
-    // firebase 11. what follows is an open subscription: an open messaging system between the app and firebase; when changes ocurre, related to this app, firebase sends out a message about user updates (sign in or sign out); we do not need to manually fetch changes;
+    const {setCurrentUser} = this.props; 
 
-    // firebase 12. however, we also need to unmount this and close the subscription to prevent memory leaks on our app, that is why we set unsubscribeFromAuth
-    
-    /* // firebase 13. this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      createUserProfileDocument(user); 
-
-      
-      firebase is now aware of the last user's login, that endpoint is doing good; however, the app hasn't saved the state. If we refresh, it will remaing logged until user signs out; 
-    }); */
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-        //we pass back the userRef object from firebase.utils, we will use it to check if the db has updated at that ref with new data. we are not going to update the user. 
-        //when this method instanciates/when our code runts it, it will still send us a snapShot object representing the store data in our db. That method is onSnapshot(), which is similar to onAuthStateChanged()
-        userRef.onSnapshot(snapShot => { //on the snapShot object is where we get the data related to the stored user, or the already stored data related to the user
-        //FROM THE NOTES: we get a documentSnapshot object from our documentReference object.  It allows us to check if a doc exists at this query using the .exists property. We can get the actual properties of the obj by using data(). This returns a JSON. if we console.log(snapShot.data()), we can see it. 
-
-          this.setState({
-            currentUser: {
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
-            }
-            // note,       console.log(this.state); cannot go after setState because setState is async, so we pass a second funct as a par in setState
-          }/* , () => {
-            console.log(this.state); 
-          } */);
+          });
 
-          //console.log(this.state);  
-          
-          
         });
 
-        
-
-        
-      } else { //and, if the user signs out, we go back to null
-        this.setState({
-          currentUser: userAuth
-        }); 
+      } else { 
+        setCurrentUser(userAuth); 
       }
     }); 
 
 
   }
 
-  // firebase 14. how to close the subscription
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   } 
 
-  // firebase 15. SIGN OUT IMPLEMENTATION: <Header currentUser={this.state.currentUser}/>
 
   
 
@@ -94,11 +64,10 @@ class App extends React.Component {
     return (
       <div>
   
-        <Header currentUser={this.state.currentUser}/>
+        <Header/>
         <Banner/>
         <Switch>
           <Route exact path='/' component={HomePage}/>
-          <Route path='/breath' component={BreathPage}/>
           <Route path='/posts' component={PostsPage}/>
           <Route path='/shop' component={ShopPage}/>
           <Route path='/about' component={About}/>
@@ -110,4 +79,80 @@ class App extends React.Component {
   }
 }
 
-export default App;
+// REDUX 11. III:  
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+  // setCurrentUser gets the user OBJECT and then calls dispatch 
+  // dispatch is a way of Redux to know that whatever passes on will be an action OBJECT that we will pass to EVERY REDUCER; 
+  // the user ACTION is a FUNCTION that gets the user and returns an ACTION OBJ
+  // here, we are calling the ACTION OBJ; we are calling setCurrentUser with the user that will be used as the PAYLOAD
+  // THIS RETURNS THE OBJECT, so we are just dispatching the OBJECT 
+})
+/*
+before: export default App;
+after: */
+export default connect(null, mapDispatchToProps)(App);
+// null because we do not need any state 
+
+// REDUX 10. III. on App.js: 
+/*
+before: <Header currentUser={this.state.currentUser}/>
+after: <Header/>
+*/
+
+// REDUX 10. IV: 
+/*
+before we needed the constructor, 
+  constructor() {
+    super(); 
+
+    this.state = {
+      currentUser: null
+    }
+  }
+  but not anymore. We delete it; 
+
+  Also, we are replace setState code with the setCurrentUser ACTION code: 
+  before:  
+  this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+            
+          }
+
+  after: 
+          this.props.setCurrentUser({
+              id: snapShot.id,
+              ...snapShot.data()
+          });
+        });
+                  // now, we are going to pass that OBJECT with the SNAPSHOT whenever the SNAPSHOT comes in, but we want to set the currentUser value to it 
+          // since we're going to do it after else, we destructure this out of our props 
+
+    componentDidMount() {
+    const {setCurrentUser} = this.props; 
+
+    then: 
+    this.props.setCurrentUser({
+              id: snapShot.id,
+              ...snapShot.data()
+          });
+    changes to: 
+              setCurrentUser({
+              id: snapShot.id,
+              ...snapShot.data()
+          });
+    and this: 
+    this.setState({
+          currentUser: userAuth
+        }); 
+    changes to: 
+    setCurrentUser(userAuth); 
+        // we pass only userAuth, because this is an update 
+
+Now in the console we can see different actions from the LOGGER we imported. They have three basic par: prev state (before action), action, and next state (result).  
+*/ 
+
