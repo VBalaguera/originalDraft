@@ -14,7 +14,7 @@ import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.compone
 import About from './pages/about/about.component';
 import Footer from './components/footer/footer.component'; 
 
-import { auth } from './firebase/firebase.utils.js'; 
+import { auth, createUserProfileDocument } from './firebase/firebase.utils.js'; 
 // (from firebase.utils.js)since we want to store the state of the user, and access the current user object, we need to convert this component into a class component
 
 class App extends React.Component {
@@ -37,12 +37,43 @@ class App extends React.Component {
 
     // firebase 12. however, we also need to unmount this and close the subscription to prevent memory leaks on our app, that is why we set unsubscribeFromAuth
     
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    /* // firebase 13. this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      createUserProfileDocument(user); 
 
-      console.log(user); 
-      // firebase 13. firebase is now aware of the last user's login, that endpoint is doing good; however, the app hasn't saved the state. If we refresh, it will remaing logged until user signs out; 
-    })
+      
+      firebase is now aware of the last user's login, that endpoint is doing good; however, the app hasn't saved the state. If we refresh, it will remaing logged until user signs out; 
+    }); */
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        //we pass back the userRef object from firebase.utils, we will use it to check if the db has updated at that ref with new data. we are not going to update the user. 
+        //when this method instanciates/when our code runts it, it will still send us a snapShot object representing the store data in our db. That method is onSnapshot(), which is similar to onAuthStateChanged()
+        userRef.onSnapshot(snapShot => { //on the snapShot object is where we get the data related to the stored user, or the already stored data related to the user
+        //FROM THE NOTES: we get a documentSnapshot object from our documentReference object.  It allows us to check if a doc exists at this query using the .exists property. We can get the actual properties of the obj by using data(). This returns a JSON. if we console.log(snapShot.data()), we can see it. 
+
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+            // note,       console.log(this.state); cannot go after setState because setState is async, so we pass a second funct as a par in setState
+          }/* , () => {
+            console.log(this.state); 
+          } */);
+
+          
+        });
+
+        
+      } else { //and, if the user signs out, we go back to null
+        this.setState({
+          currentUser: userAuth
+        }); 
+      }
+    }); 
+
+
   }
 
   // firebase 14. how to close the subscription

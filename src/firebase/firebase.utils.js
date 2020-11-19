@@ -14,6 +14,93 @@ const config = {
     appId: "1:192292850908:web:84a14899eba60a535c3819"
   };
 
+  // firebase 23. storing auth data into firestore.  An async function with the userAuth object and any additional data we might need. When we sign out we receive a null, which is a value but not an object. 
+  // From the notes: firestore library gives two types of objects: a queryReference or a querySnapshot. A query is us asking firestore for a doc/collection. It returns a queryReference, as a doc or a collection. Firestore always return us these objects, even if NOTHING EXISTS AT FROM THAT QUERY.  
+  //a queryReference object is an object that represents the "current" place in the database that we are querying. It does not have the actual data of the collection/doc, but the PROPERTIES THAT TELL US DETAILS ABOUT IT, OR THE METHOD TO GET THE SNAPSHOT OBJECT WHICH GIVE US THE DATA WE'RE LOOKING FOR. 
+  /**/
+
+  export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if (!userAuth) return; 
+
+    /* // firebase 24. const userRef = firestore.doc('user/123randomnonexistentidLOOKHERE'); //this is for testing */
+
+    const userRef = firestore.doc(`users/${userAuth.uid}`); 
+    //we will get the userReference at that location. I should see exist: false, but I cannot find it. Must have a different name now. However, the id we get back is the same from the auth library. 
+
+    /* // firebase 25. console.log(firestore.doc('user/123randomnonexistentidLOOKHERE')); */
+
+    const snapShot = await userRef.get(); 
+
+    // // firebase 26. console.log(snapShot); //NOTE: for the life of me, I cannot find the "exist" prop when console.log(snapShot); 
+
+    if(!snapShot.exists) {
+      //if the snapShot data does not exists, we will create it from scratch; for that we need documentRef through CRUD methods; but with which data?
+      const { displayName, email } = userAuth; 
+      const createdAt = new Date(); //a js object for a timestamp
+
+      // firebase 27. and we wrap everything into here, by doing an async request to the db to store the data: 
+      try { 
+        await userRef.set({ //.set is the create method, and we pass this object: 
+          displayName,
+          email,
+          createdAt,
+          ...additionalData
+        }); 
+      } catch (error) { //if it fails
+        console.log('error creating user', error.message); 
+      }
+
+    }
+    // firebase 28. this function will always also return the userRef data, because we may want it for other purposes
+    return userRef; 
+    // and it works, but we need to store all of it so we can use it in our app
+
+  }
+  // firebase 23. (cont)
+  /* to test this, we will use the fake 123randomexistentidLOOKHERE, on App.js:
+  
+  before: 
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user });
+
+      console.log(user); 
+      
+    })
+  after importing createUserProfileDocument: 
+
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+      createUserProfileDocument(user); 
+    })
+
+    Long story short, this is a way to probe the db and seek for the data we may need. NOTE: object structure may, and will, vary. The one in the tutorial and several sites is not the same. In my case, when looking for the collection and id: 
+
+    o_: {…}
+​​
+      C_: {…}
+      ​​​
+        path: {…}
+        ​​​​
+          g: 2
+          ​​​​
+          offset: 0
+          ​​​​
+          segments: (2) […]
+          ​​​​​
+            0: "user"
+            ​​​​​
+            1: "123randomnonexistentidLOOKHERE"
+  
+      A mouthful, but a doable one. 
+
+    FROM COURSE'S NOTES: we use documentRef objs to perform CRUD methods (create, retreive, update, delete). Those methods are: .set(), .get(), .update(), .delete(). We can add docs to collections using .add(). // collectionRef.add({value: prop})
+
+    We get the snapshotObject from the referenceObject using the .get() method. Ie: documentRef.get() or collectionRef.get() 
+
+    Remember: documentRef returns a documentSnapshot object. collectionRef returns a querySnapshot object. 
+
+    
+  */
+
   // firebase 3. set everything up 
   firebase.initializeApp(config); 
 
@@ -71,3 +158,79 @@ class App extends React.Component {
 
   
   */ 
+
+  /* // firebase 22. (exploring firestore) CREATING CLOUD FIRESTORE: 
+
+  is a NO SEQUEL DATABASE = a huge json object in 
+
+    Data is structured in collections, which have documents; all fields have values and ids; 
+
+    to access a collection: 
+
+    import firebase from 'firebase/app';
+    import 'firebase/firestore';
+
+    const firestore = firebase.firestore();
+
+    firestore.collectionExample('example').doc('idExample').anotherCollectionExample('anotherExample').doc('anotherIdExample'); and so on; 
+
+    self-explanatory.
+
+    another way to query: 
+    firestore.doc('/example/idExample/anotherExample/anotherIdExample'); 
+
+    if we want a certain collection of items, anotherExample:
+    firestore.collection('/example/idExample/anotherExample/');
+
+    We are going to store all users in our db. Right now, there are only in auth. HOW TO DO THIS: 
+
+    When signing in with google, we receive a lot of properties, those needed are: 
+    -displayName, email, phoneNumber, and uid (dynamically created id given when we sign in, we can check it out in firebase). We have to take the user object, selecting all needed properties, and put it into the db; 
+
+
+
+  */
+
+  /* // firebase 29. storing user data in our state: 
+
+  on App.js:
+  before: 
+
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+      createUserProfileDocument(user); 
+    }); 
+    
+  after: 
+
+  this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        //we pass back the userRef object from firebase.utils, we will use it to check if the db has updated at that ref with new data. we are not going to update the user. 
+        //when this method instanciates/when our code runts it, it will still send us a snapShot object representing the store data in our db. That method is onSnapshot(), which is similar to onAuthStateChanged()
+        userRef.onSnapshot(snapShot => { //on the snapShot object is where we get the data related to the stored user, or the already stored data related to the user
+        //FROM THE NOTES: we get a documentSnapshot object from our documentReference object.  It allows us to check if a doc exists at this query using the .exists property. We can get the actual properties of the obj by using data(). This returns a JSON. if we console.log(snapShot.data()), we can see it. 
+
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+            // note,       console.log(this.state); cannot go after setState because setState is async, so we pass a second funct as a par in setState
+          }/* , () => {
+            console.log(this.state); 
+          } *//*);
+
+          
+        });
+
+        
+      } else { //and, if the user signs out, we go back to null
+        this.setState({
+          currentUser: userAuth
+        }); 
+      }
+    }); 
+
+    Yeah. 
+  
+  */

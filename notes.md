@@ -427,4 +427,4 @@ NOTES ABOUT FILE NAMES:
 We are going to use Firebase to store information. 
 yarn add firebase 
 
-// LEARN ABOUT: STRING INTERPOLATION, BOX-SIZING, 
+// LEARN ABOUT: STRING INTERPOLATION, BOX-SIZING, no sequel database, 
