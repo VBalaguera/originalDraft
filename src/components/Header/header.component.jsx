@@ -54,21 +54,3 @@ const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
 export default connect(mapStateToProps)(Header);
 
 
-/*on header: 
-before: const mapStateToProps = state => ({
-    currentUser: state.user.currentUser 
-}); 
-after: 
-const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
-    currentUser,
-    hidden
-}); 
-// ({user: { currentUser }, }) is the kind of syntax we need when we want to destructure nested values. ie: give me this value of the user which is being destructured off the state 
-
-before: const Header = ({currentUser}) => (
-after: const Header = ({currentUser, hidden}) => (
-
-then: 
-
-*/
-

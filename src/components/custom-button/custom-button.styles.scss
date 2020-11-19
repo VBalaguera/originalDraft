@@ -9,23 +9,42 @@
     background-color: black;
     color: white; 
     text-transform: uppercase;
-    font-family: 'Open Sans Condensed';
+    font-family: 'Playfair Display', serif;
     border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    
   
     &:hover {
       background-color: white;
-      color: black; 
+      color: black;
+      border: 1px solid black;  
     }
 
-    // firebase 20. 
     &.google-sign-in {
       background-color: #4285f4; //this is a google blue
       color: white; 
+      
 
       &:hover {
         background-color: #357ae8; //a darkner google blue shade
         border: none; 
+      }
+    }
+
+    &.inverted {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      font-family: initial;
+      font-weight: 600; 
+      
+  
+      &:hover {
+        background-color: black;
+        color: white;
+        border: none;
       }
     }
   }

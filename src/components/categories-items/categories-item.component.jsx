@@ -1,6 +1,7 @@
 //CATEGORIES ITEM EQUALS COLLECTION ITEM
 import React from 'react';
 
+import CustomButton from '../custom-button/custom-button.component';
 
 import './categories-item.styles.scss'; 
 
@@ -17,6 +18,7 @@ const CategoriesItem = ({name, price, imageUrl, url}) => (
                 <span className='price'>{price}</span>
                 <span className='url'><a href="www.google.com">{url}</a></span> 
             </div>
+            <CustomButton inverted>READ MORE</CustomButton>
     </div>
 );
 
