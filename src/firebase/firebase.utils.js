@@ -372,3 +372,34 @@ export default SignUp;
   
   it works; 
 */ 
+
+/* // firebase 32. sign in with mail and password: 
+in sign-in: 
+
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils'; //auth is new
+
+before: 
+    handleSubmit = event => {
+        event.preventDefault(); 
+
+        this.setState({ email: '', password: ''})
+    }
+after: 
+    handleSubmit = async event => {
+        event.preventDefault(); 
+
+        const { email, password } = this.state; 
+
+        try {
+            await auth.signInWithEmailAndPassword(email, password); 
+            this.setState({ email: '', password: ''});
+
+        } catch (error) {
+            console.log(error); 
+        }
+
+        this.setState({ email: '', password: ''})
+    }
+
+
+*/
