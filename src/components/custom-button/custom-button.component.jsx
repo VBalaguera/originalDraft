@@ -10,7 +10,7 @@ const CustomButton = ({ children, isGoogleSignIn, ...otherProps}) => (
 
 export default CustomButton;
 
-/* firebase 19. 
+/* // firebase 19. 
 
 before: 
 const CustomButton = ({ children, ...otherProps}) => (
