@@ -79,7 +79,7 @@ class SignIn extends React.Component{
 
 export default SignIn; 
 
-/* firebase 21.
+/* // firebase 21.
 
     before: 
     <CustomButton onClick={signInWithGoogle}>SIGN IN with GOOGLE</CustomButton>

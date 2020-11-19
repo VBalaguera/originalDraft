@@ -17,7 +17,6 @@ const config = {
   // firebase 23. storing auth data into firestore.  An async function with the userAuth object and any additional data we might need. When we sign out we receive a null, which is a value but not an object. 
   // From the notes: firestore library gives two types of objects: a queryReference or a querySnapshot. A query is us asking firestore for a doc/collection. It returns a queryReference, as a doc or a collection. Firestore always return us these objects, even if NOTHING EXISTS AT FROM THAT QUERY.  
   //a queryReference object is an object that represents the "current" place in the database that we are querying. It does not have the actual data of the collection/doc, but the PROPERTIES THAT TELL US DETAILS ABOUT IT, OR THE METHOD TO GET THE SNAPSHOT OBJECT WHICH GIVE US THE DATA WE'RE LOOKING FOR. 
-  /**/
 
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return; 
@@ -156,7 +155,6 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   } 
 
-  
   */ 
 
   /* // firebase 22. (exploring firestore) CREATING CLOUD FIRESTORE: 
