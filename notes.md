@@ -678,6 +678,13 @@ export default connect(mapStateToProps)(Header);
 // the second is optional, and give back a higher comp to pass to the header
 
 
+// REDUX 11. 
+
+// REDUX 13. THE CART 
+
+
+// REDUX 12. USER REDIRECT AND USER ACTION TYPE; 
+HOW TO MAKE THE SIGN IN
 
 // ADDITIONAL INFO: 
 https://www.npmjs.com/package/react-redux
