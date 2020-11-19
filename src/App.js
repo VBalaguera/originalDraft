@@ -62,8 +62,12 @@ class App extends React.Component {
             console.log(this.state); 
           } */);
 
+          //console.log(this.state);  more testing  
+          
           
         });
+
+        
 
         
       } else { //and, if the user signs out, we go back to null
