@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component'; 
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+// NOTE: FOR UTILITY PURPOSES DURING THE COURSE I AM USING DROPDOWN INSTEAD, BUT EVERY MODIFICATION WILL BE DONE ONTO READING-LIST, MINUS THE ONES RELATING CHECKOUT PAYING FUNCTIONS AND SUCH
+// import ReadingList from '../../components/reading-list/reading-list.component';
+import ReadingIcon from '../../components/reading-icon/reading-icon.component'; 
 
 
 import { auth } from '../../firebase/firebase.utils.js';
@@ -37,6 +40,7 @@ const Header = ({currentUser, hidden}) => (
                 <Link className="option" to='/signin'>SIGN IN</Link>
             )}
             <CartIcon></CartIcon>
+            <ReadingIcon></ReadingIcon>
         </div>
         {
             hidden ? null :

@@ -1,12 +1,9 @@
 //COLLECTION ITEM EQUALS CATEGORIES ITEM 
-
 import React from 'react';
 import { connect } from 'react-redux'; 
 
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from '../../redux/cart/cart.actions'; 
-
-
 
 import './collection-item.styles.scss';
 
@@ -24,7 +21,7 @@ const CollectionItem = ({item, addItem}) => {
                 <span className='name'>{name}</span>
                 <span className='price'>{price}</span>
             </div>
-            <CustomButton onClick={() => addItem(item)} inverted>READ MORE</CustomButton>
+            <CustomButton onClick={() => addItem(item)} inverted>BUY NOW</CustomButton>
             
     </div>
 )}; //this is called doing an explicit return of our FUNCTION 
