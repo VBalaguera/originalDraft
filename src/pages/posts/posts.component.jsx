@@ -20,15 +20,17 @@ class PostsPage extends React.Component {
         const {collections} = this.state; 
         return(
             
-            <div className='posts'>
-                <div className='identifier'>
-                    POSTS
+            <div className='post-page'>
+                <div className='post-page-content'>
+                    <div className='identifier'>
+                        POSTS
+                    </div>
+                    {
+                        collections.map(({id, ...otherCollectionProps}) => (
+                            <Categories key={id} {...otherCollectionProps}/>
+                        ))
+                    }
                 </div>
-                {
-                    collections.map(({id, ...otherCollectionProps}) => (
-                        <Categories key={id} {...otherCollectionProps}/>
-                    ))
-                }
             </div>
         );
     }

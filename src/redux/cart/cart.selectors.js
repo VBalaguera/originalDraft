@@ -17,6 +17,7 @@ export const selectCartHidden = createSelector(
 )
 
 
+
 export const selectCartItemsCount = createSelector(
     [selectCartItems],
     cartItems =>
@@ -25,3 +26,13 @@ export const selectCartItemsCount = createSelector(
             accumulatedQuantity + cartItem.quantity, 0)
 ); 
 // using this on cart-icon component; same reasons as before 
+
+// on cart.selectors we create this: 
+export const selectCartTotal = createSelector(
+    [selectCartItems],
+    cartItems =>
+        cartItems.reduce(
+            (accumulatedQuantity, cartItem) => 
+            accumulatedQuantity + cartItem.quantity * cartItem.price, 0)    
+)
+// similar to last one, we're only accumulate the value of the price of each item times the item quantity 
