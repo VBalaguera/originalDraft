@@ -3,11 +3,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CustomButton from '../custom-button/custom-button.component';
-import { addItem } from '../../redux/cart/cart.actions.js'; 
+import { addBook } from '../../redux/reading/reading.actions.js'; 
 
 import './categories-item.styles.scss'; 
 
-const CategoriesItem = ({item, addItem}) => {
+const CategoriesItem = ({item, addBook}) => {
     const { id, name, author, imageUrl, url } = item; //we're destructuring these off the item; why?¿ we want these values inside this comp, and also we need access to the item itself
     return (
     <div className='collection-item'>
@@ -22,13 +22,13 @@ const CategoriesItem = ({item, addItem}) => {
                 <span className='author'>{author}</span>
                 <span className='url'><a href="www.google.com">{url}</a></span>
             </div>
-            <CustomButton onClick={() => addItem(item)} inverted>READ NOW</CustomButton>
+            <CustomButton onClick={() => addBook(item)} inverted>READ NOW</CustomButton>
             
     </div>
 )}; //this is called doing an explicit return of our FUNCTION 
 
 const mapDispatchToProps = dispatch => ({
-    addItem: item => dispatch(addItem(item))
+    addBook: item => dispatch(addBook(item))
 }); 
 
 export default connect(null, mapDispatchToProps)(CategoriesItem); 

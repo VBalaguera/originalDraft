@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AboutContent from '../../components/about-contents/about-contents.component'; 
+import SinglePost from '../../components/single-post/single-post.component'; 
 
 import './about.styles.scss';
 
@@ -59,11 +60,13 @@ class About extends React.Component{
     render() {
         return ( //spreading the contents of the state in this component through about-content
             <div className='about-container'> 
+                
                 {
                     this.state.aboutArticles.map(({id, title, category, summary}) => (
                         <AboutContent key={id} title={title} category={category} summary={summary}/>
                     ))
                 }
+                <SinglePost></SinglePost>
             </div> 
         )
     }

@@ -16,4 +16,4 @@ const ReadingItem = ({ item: {imageUrl, author, name } }) => (
     </div>
 )
 
-export default CartItem; 
+export default ReadingItem; 

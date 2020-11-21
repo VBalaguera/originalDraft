@@ -8,15 +8,21 @@ import ReadingItem from '../reading-item/reading-item.component';
 
 import './reading-list.styles.scss'; 
 
-const ReadingList = () => (
+const ReadingList = ({ readingItems }) => (
     <div className='reading-list'>
         <div className='reading-items'>
-
+        {
+            readingItems.map(readingItem => (
+                <ReadingItem key={readingItem.key} item={readingItem}/>
+            ))
+        }
         </div>
         <CustomButton>READING LIST</CustomButton>
     </div>
 ); 
 
-const mapStateToProps = ({ list: { }})
+const mapStateToProps = ({ reading: { readingItems } }) => ({
+    readingItems
+}); 
 
-export default ReadingList; 
+export default connect(mapStateToProps)(ReadingList); 

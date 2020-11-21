@@ -6,6 +6,7 @@ const SinglePost = () => (
     <div className='single-post-container'>
         
         <div className="text-main">
+            <h1>Single Post example</h1>
             <div className="text-main-upper">
                 <h1>About</h1>
                 <h3>Lorem ipsum dolor sit amet consectetur.</h3>
