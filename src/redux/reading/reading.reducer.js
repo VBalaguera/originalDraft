@@ -14,10 +14,15 @@ const readingReducer = (state = INITIAL_STATE, action) => {
                 hidden: !state.hidden
             };
         case ReadingActionTypes.ADD_BOOK: 
-        return {
-            ...state,
-            readingItems: addBookToList(state.readingItems, action.payload)
-        };
+            return {
+                ...state,
+                readingItems: addBookToList(state.readingItems, action.payload)
+            };
+        case ReadingActionTypes.CLEAR_BOOK_FROM_LIST:
+            return {
+                ...state,
+                readingItems: state.readingItems.filter(readingItem => readingItem.id !== action.payload.id)
+            }
         default:
             return state; 
     }

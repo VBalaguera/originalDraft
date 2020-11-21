@@ -713,13 +713,26 @@ yarn add reselect
 
 // REDUX 21. POLISHING CART-DROPDOWN/READING-LIST: what we're trying to achieve is to show a text if we do not have items, 
 
+// REDUX 22. A LITTLE TIME OUT ABOUT EXTENSIBLE CODE: 
+All the files we're using are under 100 lines of code, generally speaking. So far, it is simple. All comps are small and extensible by reusing features and other traits along the project. 
+We can also say REUSABLE, or PREDICTABLE. 
+More info at: https://medium.com/@rrkhayat/extensible-reusable-consumable-react-components-d51ee6eaa3f3
 
+
+// REDUX 23. IMPROVING THE USER EXPERIENCE: 
+
+We're going to modify the dropdown/reading-list so it doesn't appear open when we click the button. So, toggle again to trigger the hidden state of it. 
 
 // ADDITIONAL INFO: 
 https://www.npmjs.com/package/react-redux
 https://www.npmjs.com/package/redux
 https://www.npmjs.com/package/redux-logger
 
+
+// REDUX 24. REMOVE ITEMS FROM CART 
+
+// REDUX 25 AND FINAL VIDEO OF THIS MODULE. INCREASING/DECREASING THE QUANTITY. 
+NOTE, THIS WILL BE ONLY FOR THE CART. 
 
 
 // LEARN ABOUT: STRING INTERPOLATION, BOX-SIZING, no sequel database, how MAPSTATETOPROPS works, REACT COMPONENT STRUCTURE, REDUCER GRAMMAR AND EXAMPLES, ACTION GRAMMAR AND EXAMPLES, PAYLOADS IN REDUX, MIDDLEWARE, WHAD DOES EXACTLY MEAN INSTANCIATING IN REACT/REDUX/WHATEVER, A UTILITY FUNCTION

@@ -1,6 +1,9 @@
+//reading-list-page equals checkout  
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector} from 'reselect';
+
+import ReadingPageItem from '../../components/reading-page-item/reading-page-item.component'; 
 
 import { selectReadingItems } from '../../redux/reading/reading.selectors'; 
 
@@ -11,7 +14,7 @@ const ReadingListPage = ({readingItems}) => (
         <div className='list-header'>
             <div className='header-block'>
                 <span>
-                    PRODUCT
+                    NAME
                 </span>
             </div>
             <div className='header-block'>
@@ -31,8 +34,9 @@ const ReadingListPage = ({readingItems}) => (
             </div>
         </div>
         {
-            readingItems.map(readingItem =>
-                readingItem.name)
+            readingItems.map(readingItem => (
+                <ReadingPageItem key={readingItem.id} readingItem={readingItem}/>
+            ))
         }
     </div>
 );
