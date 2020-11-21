@@ -10,6 +10,13 @@ export const selectCartItems = createSelector(
 ); 
 //using this on cart-dropdown component; this will make sure the component is not getting rerendered when unrelated pieces of state change
 
+export const selectCartHidden = createSelector(
+    [selectCart],
+    cart => cart.hidden
+    // remember, cart.hidden comes from INITIAL_STATE of cart.reducer.js
+)
+
+
 export const selectCartItemsCount = createSelector(
     [selectCartItems],
     cartItems =>

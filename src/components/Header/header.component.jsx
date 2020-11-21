@@ -1,12 +1,17 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'; 
 import { connect } from 'react-redux'; 
-
+import { createStructuredSelector } from 'reselect'; 
+// 
 
 import CartIcon from '../../components/cart-icon/cart-icon.component'; 
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 // NOTE: FOR UTILITY PURPOSES DURING THE COURSE I AM USING DROPDOWN INSTEAD, BUT EVERY MODIFICATION WILL BE DONE ONTO READING-LIST, MINUS THE ONES RELATING CHECKOUT PAYING FUNCTIONS AND SUCH
+import { selectCartHidden } from '../../redux/cart/cart.selectors.js';
+import { selectCurrentUser } from '../../redux/user/user.selectors.js';
 import ReadingIcon from '../../components/reading-icon/reading-icon.component'; 
+import ReadingList from '../../components/reading-list/reading-list.component'; 
+import { selectReadingHidden } from '../../redux/reading/reading.selectors'; 
 
 
 
@@ -46,14 +51,21 @@ const Header = ({currentUser, hidden }) => (
             hidden ? null :
             <CartDropdown></CartDropdown>
         }
+{/*         {
+            hidden ? null : 
+            <ReadingList></ReadingList>
+        } */}
 
     </div>
 );
 
-const mapStateToProps = ({user: { currentUser },  cart: { hidden } }) => ({
-    currentUser,
-    hidden
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden 
+    //hidden: selectReadingHidden
 }); 
+
 
 
 export default connect(mapStateToProps)(Header);
@@ -76,6 +88,6 @@ import ReadingList from '../../components/reading-list/reading-list.component';
 
 ON const mapStateToProps add this: 
 
-reading: {hidden}
+hidden: selectCartHidden 
 */
 

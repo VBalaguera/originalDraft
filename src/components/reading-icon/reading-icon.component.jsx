@@ -1,3 +1,4 @@
+// reading-icon equals cart-icon
 import React from 'react';
 import { connect } from 'react-redux'; 
 

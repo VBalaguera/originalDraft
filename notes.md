@@ -709,7 +709,9 @@ yarn add reselect
 
 // WARNING, WE NEED TO CHANGE THE FOLDER STRUCTURE TO DO THIS. 
 
+// REDUX 20. USER SELECTORS 
 
+// REDUX 21. POLISHING CART-DROPDOWN/READING-LIST: what we're trying to achieve is to show a text if we do not have items, 
 
 
 
