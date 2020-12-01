@@ -1,16 +1,18 @@
-// REDUX 7. CREATING THE STORE: store.js inside the REDUX folder 
+// PERSIST cont. 
 import { createStore, applyMiddleware } from 'redux'; 
-// WE NEED TO ADD MIDDLEWARE (WHICH GOES BETWEEN THE ACTIONS AND THE ROOTREDUCER) TO THE STORE SO WE CAN CATCH and DISPLAY (CONSOLE.LOG) ACTIONS WHEN THEY'RE FIRED OR DISPATCHED. 
+import { persistStore } from 'redux-persist'; 
+// allows browser to cache store, depending on which set configs we have 
 
-import logger from 'redux-logger'; //this also helps on debugging; 
+import logger from 'redux-logger';
 
 import rootReducer from './root-reducer'; 
 
-// setting MIDDLEWARES, REDUX expects arrays: 
 const middlewares = [logger]; 
 
-// making the STORE 
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
-// with ...middlewares we are spreading all the methods or values in that array into applyMiddleware() as individual arguments. If we need to add more things to the MIDDLEWARE, we can do it through middlewares array; 
+export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
-export default store; 
+export const persistor = persistStore(store);
+//persistor is a persisted version of the store; with the store, we will create a new Provider to wrap the app.  
+
+export default { store, persistor }; 
+//now we have access to both

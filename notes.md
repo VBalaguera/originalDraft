@@ -736,3 +736,37 @@ NOTE, THIS WILL BE ONLY FOR THE CART.
 
 
 // LEARN ABOUT: STRING INTERPOLATION, BOX-SIZING, no sequel database, how MAPSTATETOPROPS works, REACT COMPONENT STRUCTURE, REDUCER GRAMMAR AND EXAMPLES, ACTION GRAMMAR AND EXAMPLES, PAYLOADS IN REDUX, MIDDLEWARE, WHAD DOES EXACTLY MEAN INSTANCIATING IN REACT/REDUX/WHATEVER, A UTILITY FUNCTION
+
+
+
+
+// MODULE 9 LOCAL STORAGE AND SESSION STORAGE 
+
+localStorage.setItem and localStorage.getItem work with string keys. Only strings. 
+
+const myObjectToStore = { name: "Joe"} a JSON object 
+
+one example of this: 
+window.localStorage.setItem('myitem', JSON.stringify(myObjectToStore)) 
+'myItem' is the key, the JSON we're using is the one we get from js (we always have access to this) with the stringify() method. 
+Stringify() puts the object into a string, including all the keys. 
+
+if we want to access:
+window.localStorage.getItem('myItem')
+"{"name": "Joe"}"
+
+to convert it back: 
+const myRetreivedObject = window.localStorage.getItem("myItem")
+
+to turn it into an object: 
+JSON.parse(myRetreivedObject)
+{name: "Joe"}
+
+this way, we can store the state of the cart/reading 
+
+
+REDUX PERSIST AND ITS IMPLEMENTATION: 
+
+yarn add redux-persist 
+
+CONFIGURATION: 

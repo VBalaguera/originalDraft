@@ -1,52 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-// REDUX 1. 
 import { Provider } from 'react-redux';
 
-// REDUX 8. 
-import store from './redux/store';
+// we need to bring here persist and the comp that will leverage inside our app that will give the context of our new persistReducer; 
+import { PersistGate } from 'redux-persist/integration/react';
+//this can be used for multiple platforms too 
+
+
+import { store, persistor } from './redux/store';
 
 import './index.css';
 import App from './App';
 
-
-
-// REDUX 2. 
-ReactDOM.render(
-  // REDUX 8. cont
-  <Provider store={store}>
-    <BrowserRouter>
-          <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root')
-);
-// the PROVIDER is a COMP that is the parent of everything inside the APP. It allows us to get access to everything store-related. 
-
-// REDUX 8. passing the store to index.js: 
-/*
-before: 
-ReactDOM.render(
-  <Provider>
-    <BrowserRouter>
-          <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root')
-);
-after: 
-import store from './redux/store';
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-          <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
 
-
-*/
-
-
+//in persistor={persistor}, {persistor} is export const persistor = persistStore(store) from store.js 
+// we want to access the persistor flow, so we need to make sure to wrap the app; it will allow PersistGate to receive the Store, and also do actions that will rehydrate the State when our app refreshes; if we refresh after putting some items in the cart/reading, we will see the persist.REHYDRATE action in the console; which is great; 
