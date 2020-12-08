@@ -1,13 +1,9 @@
 //POSTS EQUALS SHOP
 import React from 'react';
-import { connect } from 'react-redux'; 
-import { createStructuredSelector } from 'reselect'; 
 
 import './posts.styles.scss'; 
 
-import Categories from '../../components/categories/categories.component'; 
-
-import { selectPublications } from '../../redux/posts/posts.selectors'; 
+import PublicationsOverview from '../../components/publications-overview/publications-overview.component'; 
 
 const PostsPage = ({ publications }) => (
 
@@ -16,17 +12,11 @@ const PostsPage = ({ publications }) => (
                     <div className='identifier'>
                         POSTS
                     </div>
-                    {
-                        publications.map(({id, ...otherPublicationProps}) => (
-                            <Categories key={id} {...otherPublicationProps}/>
-                        ))
-                    }
+                    <PublicationsOverview /> 
                 </div>
             </div>
         );
 
-const mapStateToProps = createStructuredSelector({
-    publications: selectPublications
-});
 
-export default connect(mapStateToProps)(PostsPage); 
+
+export default PostsPage; 

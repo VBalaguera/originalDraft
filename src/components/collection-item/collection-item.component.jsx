@@ -1,4 +1,4 @@
-//COLLECTION ITEM EQUALS CATEGORIES ITEM 
+//COLLECTION ITEM EQUALS PUBLICATION ITEM
 import React from 'react';
 import { connect } from 'react-redux'; 
 

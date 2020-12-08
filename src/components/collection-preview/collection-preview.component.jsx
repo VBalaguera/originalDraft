@@ -1,4 +1,4 @@
-//COLLECTION PREVIEW EQUALS CATEGORIES
+//COLLECTION PREVIEW EQUALS PUBLICATION PREVIEW
 import React from 'react';
 
 import CollectionItem from '../collection-item/collection-item.component'; 
