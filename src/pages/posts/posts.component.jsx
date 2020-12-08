@@ -1,39 +1,32 @@
 //POSTS EQUALS SHOP
 import React from 'react';
+import { connect } from 'react-redux'; 
+import { createStructuredSelector } from 'reselect'; 
 
 import './posts.styles.scss'; 
 
 import Categories from '../../components/categories/categories.component'; 
 
-import POSTS_DATA from './post.data.js';
+import { selectPublications } from '../../redux/posts/posts.selectors'; 
 
-class PostsPage extends React.Component {
-    constructor(props) {
-        super(props); 
+const PostsPage = ({ publications }) => (
 
-        this.state = {
-            collections: POSTS_DATA //temporary placeholder
-        };
-    }
-
-    render() {
-        const {collections} = this.state; 
-        return(
-            
             <div className='post-page'>
                 <div className='post-page-content'>
                     <div className='identifier'>
                         POSTS
                     </div>
                     {
-                        collections.map(({id, ...otherCollectionProps}) => (
-                            <Categories key={id} {...otherCollectionProps}/>
+                        publications.map(({id, ...otherPublicationProps}) => (
+                            <Categories key={id} {...otherPublicationProps}/>
                         ))
                     }
                 </div>
             </div>
         );
-    }
-};
 
-export default PostsPage; 
+const mapStateToProps = createStructuredSelector({
+    publications: selectPublications
+});
+
+export default connect(mapStateToProps)(PostsPage); 

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { clearItemFromCart } from '../../redux/cart/cart.actions.js';
 
 import { clearBookFromList } from '../../redux/reading/reading.actions.js'; 
 

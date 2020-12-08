@@ -770,3 +770,28 @@ REDUX PERSIST AND ITS IMPLEMENTATION:
 yarn add redux-persist 
 
 CONFIGURATION: 
+
+
+
+MODULE 10: 
+
+DIRECTORY/FLAGSHIP STATE INTO REDUX: we're moving its contents into the Store, so we can do things like moving its content into more than one component. 
+Shop-data is into shop-component so far, but we can move it into the Store. 
+
+MOVING DIRECTORY CONTENT INTO DIRECTORY-REDUX FOLDER. Is information, so we make a reducer: 
+
+
+// MODULE 10, PART 2: MOVING SHOP.DATA.JS INTO ITS OWN REDUCER AND NOT KEEP IT IN SHOP.COMPONENT;
+
+In a traditional app how is that data stored? Backend. 
+
+
+// MODULE 10, PART 3: COLLECTION OVERVIEW COMP: 
+
+We're building a category page to display the items inside collections. 
+
+We need nested Routes. 
+
+
+
+SEARCH ABOUT STORING DATA IN BACKEND. USING FIREBASE OR NOT. 
