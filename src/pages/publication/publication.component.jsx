@@ -9,10 +9,18 @@ import PublicationItem from '../../components/publication-item/publication-item.
 import { selectPublication } from '../../redux/posts/posts.selectors'; 
 
 const PublicationPage = ({ publication }) => {
+    const { title, items } = publication; 
     console.log(publication); 
     return (
-        <div className='publication'>
-            <h2>PUBLICATION PAGE</h2>
+        <div className='publication-page'>
+            <h2 className='title'>{title}</h2>
+            <div className='items'>
+                {
+                    items.map(item => (
+                        <PublicationItem key={item.id} item={item} />
+                    ))
+                }
+            </div>
         </div>
     );
 }

@@ -1,13 +1,5 @@
 import { createSelector } from 'reselect'; 
 
-const PUBLICATION_ID_MAP = {
-    futureNews: 1,
-    happenings: 2, 
-    reviews: 3, 
-    articles: 4, 
-    recommendations: 5
-}
-
 const selectPosts = state => state.posts; 
 
 export const selectPublications = createSelector(
@@ -15,8 +7,13 @@ export const selectPublications = createSelector(
     posts => posts.publications
 ); 
 
+export const selectPublicationsForPreview = createSelector(
+    [selectPublications],
+    publications => Object.keys(publications).map(key => publications[key])
+)
+
 export const selectPublication = publicationUrlParam => 
     createSelector(
         [selectPublications],
-        publications => publications.find(publication => publication.id === PUBLICATION_ID_MAP[publicationUrlParam])
+        publications => publications[publicationUrlParam]
     )

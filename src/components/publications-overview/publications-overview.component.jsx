@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import PublicationPreview from '../../components/publication-preview/publication-preview.component'; 
-import { selectPublications } from '../../redux/posts/posts.selectors'; 
+import { selectPublicationsForPreview } from '../../redux/posts/posts.selectors'; 
 
 import './publications-overview.styles.scss'; 
 
@@ -18,7 +18,7 @@ const PublicationsOverview = ({ publications }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-    publications: selectPublications
+    publications: selectPublicationsForPreview
 });
 
 export default connect (mapStateToProps)(PublicationsOverview); 

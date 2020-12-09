@@ -1,6 +1,6 @@
 //POSTS EQUALS SHOP
-const POSTS_DATA = [
-    {
+const POSTS_DATA = {
+    futureNews: {
       id: 1,
       title: 'Future News',
       routeName: 'futureNews',
@@ -61,7 +61,7 @@ const POSTS_DATA = [
         }
       ]
     },
-    {
+    happenings: {
       id: 2,
       title: 'Happenings',
       routeName: 'happenings',
@@ -116,7 +116,7 @@ const POSTS_DATA = [
         }
       ]
     },
-    {
+    reviews: {
       id: 3,
       title: 'Reviews',
       routeName: 'reviews',
@@ -153,7 +153,7 @@ const POSTS_DATA = [
         }
       ]
     },
-    {
+    articles: {
       id: 4,
       title: 'Articles',
       routeName: 'articles',
@@ -202,7 +202,7 @@ const POSTS_DATA = [
         }
       ]
     },
-    {
+    recommendations: {
       id: 5,
       title: 'Recommendations',
       routeName: 'recommendations',
@@ -245,6 +245,6 @@ const POSTS_DATA = [
         }
       ]
     }
-  ];
+  };
 
 export default POSTS_DATA; 

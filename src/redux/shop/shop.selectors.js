@@ -1,14 +1,5 @@
 import { createSelector } from 'reselect';
 
-const COLLECTION_ID_MAP = {
-    hats: 1,
-    sneakers: 2,
-    jackets: 3,
-    womens: 4,
-    mens: 5
-} //this maps the string value to its respective id; the string value that we're getting from our url param will be the actual property; to confirm which is which, we just need to look up all stored properties in Redux 
-// we're going to pass that string and then  use it as the dynamic value of the prop to get the correct Id; then, match in our selector
-
 const selectShop = state => state.shop; 
 
 export const selectCollections = createSelector(
@@ -16,16 +7,26 @@ export const selectCollections = createSelector(
     shop => shop.collections
 ); 
 
-//said selector is this one: 
+export const selectCollectionsForPreview = createSelector(
+    [selectCollections],
+    collections => Object.keys(collections).map(key => collections[key])
+)
+// object.keys gets us all of the keys of an obj that we pass into it, and returns them in arr format; 
+/* i.e: 
+const testObject = { a: 1, b: 2, c: 3}
+Object.keys(testObject)
+["a", "b", "c"]
+
+Object.keys(collections) will get the keys off collections. We have now all of the object values; 
+.map(key => collections[key]) is to put said values into an array 
+
+Object.keys(collections).map(key => collections[key])
+We want to get all the keys and map them to get the values of our collections object at that key. 
+*/ 
+
 export const selectCollection = collectionUrlParam =>
     createSelector(
         [selectCollections],
-        collections => collections.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam])
+        collections => collections[collectionUrlParam]
     ); 
 
-/*
-find(
-    collection.id matches the [collectionUrlParam] our COLLECTION_ID_MAP
-)
-we're just matching numbers here; 
-*/
