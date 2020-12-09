@@ -3,7 +3,7 @@ const POSTS_DATA = [
     {
       id: 1,
       title: 'Future News',
-      routeName: 'future-news',
+      routeName: 'futureNews',
       items: [
         {
           id: 1,

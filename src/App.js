@@ -26,6 +26,8 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 class App extends React.Component {
 
+  
+
 
 
 
@@ -70,8 +72,8 @@ class App extends React.Component {
         <Banner/>
         <Switch>
           <Route exact path='/' component={HomePage}/>
-          <Route exact path='/posts' component={PostsPage}/>
-          <Route exact path='/shop' component={ShopPage}/>
+          <Route path='/posts' component={PostsPage}/>
+          <Route path='/shop' component={ShopPage}/>
           <Route exact path='/checkout' component={CheckoutPage}/>
           <Route exact path='/readinglist' component={ReadingListPage}/>
           <Route exact path='/about' component={About}/>
