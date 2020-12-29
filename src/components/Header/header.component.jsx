@@ -10,8 +10,8 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selectors.js';
 import { selectCurrentUser } from '../../redux/user/user.selectors.js';
 import ReadingIcon from '../../components/reading-icon/reading-icon.component'; 
-import ReadingList from '../../components/reading-list/reading-list.component'; 
-import { selectReadingHidden } from '../../redux/reading/reading.selectors'; 
+/* import ReadingList from '../../components/reading-list/reading-list.component'; 
+import { selectReadingHidden } from '../../redux/reading/reading.selectors';  */
 
 
 

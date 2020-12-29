@@ -8,7 +8,7 @@ import { addItem } from '../../redux/cart/cart.actions';
 import './collection-item.styles.scss';
 
 const CollectionItem = ({item, addItem}) => {
-    const { id, name, price, imageUrl} = item; //we're destructuring these off the item; why?¿ we want these values inside this comp, and also we need access to the item itself
+    const { name, price, imageUrl} = item; //we're destructuring these off the item; why?¿ we want these values inside this comp, and also we need access to the item itself
     return (
     <div className='collection-item'>
         <div
