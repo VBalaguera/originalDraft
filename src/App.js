@@ -9,8 +9,11 @@ import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import About from './pages/about/about.component';
+import Footer from './components/footer/footer.component'; 
 
 import Header from './components/Header/header.component.jsx';
+import Banner from './components/banner/banner.component.jsx'; 
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -47,10 +50,12 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <Banner />
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
+          <Route exact path='/about' component={About}/>
           <Route
             exact
             path='/signin'
@@ -63,6 +68,7 @@ class App extends React.Component {
             }
           />
         </Switch>
+        <Footer />
       </div>
     );
   }
