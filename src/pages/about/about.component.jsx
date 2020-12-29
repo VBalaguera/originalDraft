@@ -58,7 +58,7 @@ class About extends React.Component{
     }
 
     render() {
-        return ( //spreading the contents of the state in this component through about-content
+        return ( 
             <div className='about-container'> 
                 <h1>Prop-mapping test here</h1>
                 {
