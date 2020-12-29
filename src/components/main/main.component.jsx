@@ -8,7 +8,7 @@ const Main = () => (
         <div className="main_pitch_text">
             <h1>An urban <span className="pointedWords">reinterpretation</span></h1>
             <p>
-                This is all I got to share and say about Madrid at this moment. Enjoy.
+                This is a test. Enjoy.
             </p>
         </div>
         <div className="showcase">

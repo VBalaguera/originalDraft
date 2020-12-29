@@ -60,12 +60,13 @@ class About extends React.Component{
     render() {
         return ( //spreading the contents of the state in this component through about-content
             <div className='about-container'> 
-                
+                <h1>Prop-mapping test here</h1>
                 {
                     this.state.aboutArticles.map(({id, title, category, summary}) => (
                         <AboutContent key={id} title={title} category={category} summary={summary}/>
                     ))
                 }
+                <h1>SinglePost component test here</h1>
                 <SinglePost></SinglePost>
             </div> 
         )
