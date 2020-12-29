@@ -10,6 +10,7 @@ import PostsPage from './pages/posts/posts.component';
 import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import Contact from './pages/contact/contact.component'; 
 import About from './pages/about/about.component';
 import Footer from './components/footer/footer.component'; 
 
@@ -58,6 +59,7 @@ class App extends React.Component {
           <Route path='/shop' component={ShopPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
           <Route exact path='/about' component={About}/>
+          <Route exact path='/contact' component={Contact}/>
           <Route
             exact
             path='/signin'

@@ -1,0 +1,8 @@
+.contact-page { //this style also applies to post.styles, checkout.styles, and reading-list-page.styles, and it should be the standard for all pages; 
+    width: 75%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem auto 0;
+}
