@@ -11,9 +11,7 @@ import Header from './components/Header/header.component';
 import HomePage from './pages/homepage/homepage.component'; 
 import Banner from './components/banner/banner.component.jsx'; 
 import ShopPage from './pages/shop/shop.component.jsx'; 
-import PostsPage from './pages/posts/posts.component.jsx'; 
 import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component.jsx';
-import ReadingListPage from './pages/reading-list-page/reading-list-page.component.jsx';
 import CheckoutPage from './pages/checkout/checkout.component.jsx'; 
 import About from './pages/about/about.component';
 import Footer from './components/footer/footer.component'; 
@@ -72,10 +70,8 @@ class App extends React.Component {
         <Banner/>
         <Switch>
           <Route exact path='/' component={HomePage}/>
-          <Route path='/posts' component={PostsPage}/>
           <Route path='/shop' component={ShopPage}/>
           <Route exact path='/checkout' component={CheckoutPage}/>
-          <Route exact path='/readinglist' component={ReadingListPage}/>
           <Route exact path='/about' component={About}/>
           <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage/>)}/>
         </Switch>
