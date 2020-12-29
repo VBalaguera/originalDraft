@@ -797,6 +797,36 @@ We need nested Routes.
 // MODULE 11, PART 1: NESTED ROUTING IN SHOP PAGE: 
 
 
+MODULE 12, LAST CHAPTER: THINKING ABOUT DATA FLOW: 
+Tl; dr: get a piece of paper and a decent pen, plan everything out first, then code. 
+By everything, I mean: app principles and functionality, data flow, component hierarchy, 
+REMEMBER THE THREE REACT DEVELOPER PRINCIPLES: 
+1.	DECIDE ON COMPONENTS.
+2.	DECIDE THE STATE AND WHERE IT LIVES.
+3.	WHAT CHANGES WHEN STATE CHANGES. 
+Do not store too much data into an unique component. Flexibility is key. 
+
+
+
+MODULE 13, STRIPE INTEGRATION TO IMPLEMENT PAYMENT SOLUTIONS
+
+STRIPE DEPLOYS A VERY EASY TO USE INTERFACE BY USING A PAYING BUTTON TO OPEN A FORM WHERE WE CAN PROVIDE ALL THE NECESSARY PAYMEN DATA. The usual stuff: card number, expiration date, back of the card number.  
+
+Docs here: https://stripe.com/docs/stripe-js
+
+Create an account, is free. 
+Account created at: https://dashboard.stripe.com/test/dashboard
+
+We are not going to process any live payments, ignore the graphs. 
+
+Get the API KEYS. Secret Key will be used in a live server, and allows to make charges. So, we will not use it. 
+Publishable key is the one we need. With that one: 
+
+yarn add react-stripe-checkout 
+
+that is the checkout button for the component we need to process the payments; so, we create stripe-button.component
+
+
 
 
 SEARCH ABOUT STORING DATA IN BACKEND. USING FIREBASE OR NOT. 

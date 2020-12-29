@@ -10,7 +10,7 @@ const PublicationPreview = ({title, items}) => (
         <h1 className='title'>
             {title.toUpperCase()}
         </h1>
-        <div className='publications-items'>
+        <div className='publications-previews'>
             {
                 items.filter((item, idx) => idx < 4)
                 .map((item) => (

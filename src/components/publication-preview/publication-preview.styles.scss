@@ -6,12 +6,13 @@
   
     .title {
       font-size: 1.5rem;
-      margin: auto; 
+      margin: .5rem; 
     }
   
     .publications-items {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column; 
+      margin: .5rem; 
     }
   }
   
