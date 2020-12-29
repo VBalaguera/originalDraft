@@ -827,6 +827,72 @@ yarn add react-stripe-checkout
 that is the checkout button for the component we need to process the payments; so, we create stripe-button.component
 
 
+MODULE 14 - HEROKU DEPLOYMENT 
 
+Heroku is a PaaS. We will deploy our site over there. 
+
+remember the scripts in dependencies, we have the necessary ones to turn our code into all the necessary html/css/js code that browsers need. But first, we need a server to host it. 
+
+Sign up on Heroku, create a new app in its dashboard, and: 
+
+1.get the HEROKU CLI through https://devcenter.heroku.com/articles/heroku-cli got the Windows 64-bit installer, installed it, heroku --version does not work here so I used npm install -g heroku. That last part works, so: 
+
+(from this website: https://devcenter.heroku.com/articles/heroku-cli)
+
+Getting started
+
+After you install the CLI, run the heroku login command. You’ll be prompted to enter any key to go to your web browser to complete login. The CLI will then log you in automatically.
+
+heroku login
+heroku: Press any key to open up the browser to login or q to exit
+ ›   Warning: If browser does not open, visit
+ ›   https://cli-auth.heroku.com/auth/browser/***
+heroku: Waiting for login...
+Logging in... done
+Logged in as me@example.com
+
+If you’d prefer to stay in the CLI to enter your credentials, you may run heroku login -i
+
+heroku login -i
+heroku: Enter your login credentials
+Email: me@example.com
+Password: ***************
+Two-factor code: ********
+Logged in as me@heroku.com
+
+The CLI saves your email address and an API token to ~/.netrc for future use. For more information, see Heroku CLI Authentication.
+
+Now you’re ready to create your first Heroku app:
+
+cd ~/myapp
+
+heroku create
+Creating app... done, ⬢ sleepy-meadow-81798
+https://sleepy-meadow-81798.herokuapp.com/ | https://git.heroku.com/sleepy-meadow-81798.git
+
+Check out your preferred language’s getting started guide for a comprehensive introduction to deploying your first app.
+
+We log in. 
+
+Its functionality is similar to previous git commands we used, but specific for heroku. 
+
+heroku create frugality-app --buildpack https://github.com/mars/create-react-app-buildpack.git 
+
+(buildpack is esentially a specific config for the build that we want; it will deploy our React project as a STATIC WEBSITE). We want this because is the best and most efficiency way to host a create-react-app project. This buildpack is going to be a create-react-app buildpack. We don't havce to run npm build ourselves. 
+
+Done. Now we want to push our changes from this project: git push heroku main
+
+heroku is the repo where the project we just created. Main is the main brand. Now it builds the source through an optimization with the buildpack when deploying the react-app project. Gets all the projects related to the project, dependencies, optimization the build, configs for babel and webpack. Then, it will say running build (yarn). 
+
+remote: -----> Build
+remote:        Running build (yarn)
+remote:        yarn run v1.22.10
+remote:        $ react-scripts build
+remote:        Creating an optimized production build...
+remote: Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+
+Now it will host our website. Takes forever by the way. 
+
+   
 
 SEARCH ABOUT STORING DATA IN BACKEND. USING FIREBASE OR NOT. 
