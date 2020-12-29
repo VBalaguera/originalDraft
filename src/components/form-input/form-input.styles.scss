@@ -1,7 +1,7 @@
 $sub-color: grey;
 $main-color: black;
 
-@mixin shrinkLabel {//mixin as a transition with 300ms 
+@mixin shrinkLabel {
   top: -14px;
   font-size: 12px;
   color: $main-color;
@@ -9,7 +9,7 @@ $main-color: black;
 
 .group {
   position: relative;
-  margin: 2.5rem 0;
+  margin: 45px 0;
 
   .form-input {
     background: none;
