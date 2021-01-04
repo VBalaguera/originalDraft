@@ -1,24 +1,23 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom'; 
+
 
 import Background from '../../images/backgrounds/photo-1605456934970-1f1f2541f90b.webp'; 
 //pending learning how to set resources from external sites, in this case a background picture
 
-import './banner.styles.scss';
+import { BannerContainer, BannerImage, BannerText, BannerTitle, BannerSubtitle } from './banner.styles'; 
 
 const Banner = () => (
-    <div className='banner'>
-    <div 
-        className='image'
+    <BannerContainer>
+    <BannerImage
         style = {{
             backgroundImage: `url(${Background})`
         }}
         />
-    <div className='banner-text'>
-        <Link to="/" className='banner-title'>frugality</Link>
-        <Link to='/about' className='banner-subtitle'>click here to know more</Link>
-    </div>
-</div>
+    <BannerText>
+        <BannerTitle to="/">frugality</BannerTitle>
+        <BannerSubtitle to='/about'>click here to know more</BannerSubtitle>
+    </BannerText>
+</BannerContainer>
 )
 
 export default Banner; 
