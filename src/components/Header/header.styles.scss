@@ -1,20 +1,22 @@
-.header {
+/* .header {
   height: 4.5rem;
   width: 100%;
   display: flex; 
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;  */
+  //this goes to HeaderContainer; 
 
-  .logo-container {
+/*   .logo-container {
       height: 100%;
       width: 7rem;
       padding: 2rem; 
       display: flex; 
       align-items: center; 
       justify-content: center;
-  }
-
+      // this goes to LogoContainer
+  } */
+/* 
   .options {
       width: 50%;
       height: 100%; 
@@ -23,13 +25,14 @@
       align-items: center;
       justify-content: flex-end;
       margin: 1rem; 
+      //this one goes to OptionsContainer; 
 
       .option {
           padding: .8rem 1.5rem;
-        }
-      
-      .option:hover {
           cursor: pointer; 
-      }
+        }
+        //however, what about this one? we do not want to duplicate this. we are going to use { css } from 'styled-components'; 
+        //see OptionContainerStyles for more info 
+
   }
-}
+} */

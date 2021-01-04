@@ -8,15 +8,15 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
     className={`${size} menu-item`}
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
-    <div
-      className='background-image'
-      style={{
-        backgroundImage: `url(${imageUrl})`
-      }}
-    />
-    <div className='content'>
+  <div
+    className='background-image'
+    style={{
+      backgroundImage: `url(${imageUrl})`
+    }}
+  />
+    <div className='contents'>
       <h1 className='title'>{title.toUpperCase()}</h1>
-      <span className='subtitle'>SHOP NOW</span>
+      <h2 className='subtitle'>SHOP NOW</h2>
     </div>
   </div>
 );

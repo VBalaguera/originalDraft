@@ -1,14 +1,14 @@
 //MENU ITEM EQUALS FLAGSHIP CONTENT
 .menu-item {
-  min-width: 25%;
-  height: 15rem; 
-  flex: 1 1 auto; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  border: 2px solid black; 
-  margin: 0 0.5rem 1rem; 
-  overflow: hidden; 
+  min-width: 25%; 
+    height: 15rem; 
+    flex: 1 1 auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 0 0.5rem 0.7rem; 
+    border: 1.7px solid black; 
+    overflow: hidden; 
 
   &:hover {
       cursor: pointer;
@@ -30,20 +30,10 @@
   &.large {
       height: 23rem; 
       width: 90%; 
-      background-position: center -1px;  //TEMPORARY
   }
 
-  &.large:last-child { //TEMPORARY
-      background-position: center -4rem;  
-  }
 
-  &:first-child {
-      margin-right: 0.5rem;
-  }
 
-  &:last-child {
-      margin-left: 0.5rem; 
-  }
 
   .background-image {
       width: 100%;
@@ -69,13 +59,11 @@
           font-weight: 700; 
           margin-bottom: 0.4rem;
           font-size: 1.5rem; 
-          color: gold; 
       }
 
       .subtitle {
           font-weight: 500; 
           font-size: 1rem; 
-          color: white; 
       }
   }
 }

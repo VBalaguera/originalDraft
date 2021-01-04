@@ -3,14 +3,15 @@ import React from 'react';
 import Flagship from '../../components/flagship/flagship.component'; 
 import Directory from '../../components/directory/directory.component';
 import Main from '../../components/main/main.component'; 
-import './homepage.styles.scss';
+
+import { HomePageContainer } from './homepage.styles'; 
 
 const HomePage = () => (
-  <div className='homepage'>
+  <HomePageContainer>
     <Main />
     <Flagship />
     <Directory />
-  </div>
+  </HomePageContainer>
 );
 
 export default HomePage;
