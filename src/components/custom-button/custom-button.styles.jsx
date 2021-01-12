@@ -11,9 +11,6 @@ const buttonStyles = css`
       border: 1px solid black;  
     }
 `
-//those css values come from CustomButtonContainer 
-
-//here, all the .inverted
 const invertedButtonStyles = css`
     background-color: white;
     color: black;
@@ -32,7 +29,6 @@ const invertedButtonStyles = css`
     }
 `;
 
-//here, all .google-sign-in: 
 const googleSignInStyles = css`
       background-color: #4285f4; 
       color: white; 
@@ -43,8 +39,6 @@ const googleSignInStyles = css`
         border: none; 
       }
 `; 
-
-//here we use the showcase ones: 
 
 const showCaseButtonStyles = css`
 	border: 2px solid crimson;
@@ -61,12 +55,9 @@ const showCaseButtonStyles = css`
     }
 `; 
 
-//now, we will write a function that will be called inside CustumButtonContainer; 
 const getButtonStyles = props => {
-    //this will return different styles, depending on what we have; 
     
     if (props.isGoogleSignIn) {
-    //isGoogleSignIn are props that came from custom-button.component; 
         return googleSignInStyles; 
     }
 
@@ -81,10 +72,8 @@ const getButtonStyles = props => {
     else {
         return buttonStyles;
     } 
-    //if we have inverted props, it will call its own styles: invertedButtonStyles; if not, we will go to the default buttonStyles 
 }
 
-//here, all .custom-button styles 
 export const CustomButtonContainer = styled.button`
     min-width: 5rem;
     width: auto;
@@ -104,4 +93,3 @@ export const CustomButtonContainer = styled.button`
     
     ${getButtonStyles}
 `;
-// ${getButtonStyles} calls all its css values

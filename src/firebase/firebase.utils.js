@@ -96,8 +96,6 @@ const config = {
 
   };
 
-  //
-
   export const addPublicationsAndDocuments = async (publicationKey, objectsToAdd) => {
     const publicationsRef = firestore.collection(publicationKey);
 

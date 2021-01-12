@@ -9,27 +9,15 @@ import {
 
 import { updateCollections } from '../../redux/shop/shop.actions'; 
 
-// 1: 
 import WithSpinner from '../../components/with-spinner/with-spinner.component'; 
 
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component';
 
-// 4: new comp: 
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview); // this returns a new comp with a wrapped comp I passed in (CollectionsOverview)
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview); 
 const CollectionPageWithSpinner = WithSpinner(CollectionPage); 
 
 class ShopPage extends React.Component {
-  // 2: setting isLoading value to true/false
-  /* SHORTHAND EXAMPLE: 
-  constructor() {
-    super(); 
-
-    this.state = {
-      loading: true
-    }
-  }*/
-  // shorter way, constructor and super will be handled in the backend by react; avoids redundancy; both ROUTE COMPS are the ones that need this loading state
   state = {
     loading: true
   }; 
@@ -47,7 +35,6 @@ class ShopPage extends React.Component {
 
       updateCollections(collectionsMap); 
 
-      // 3: after mounting/loading is finished: 
       this.setState({ loading: false }); 
     }); 
 
@@ -56,7 +43,6 @@ class ShopPage extends React.Component {
 
   render() {
     const { match } = this.props; 
-    // 5. destructuring loading value: 
     const { loading } = this.state; 
     return (
       <div className='shop-page'>
@@ -79,12 +65,7 @@ class ShopPage extends React.Component {
     );
   }
 } 
-// 4. render is a method that takes a function where the pars and the funct are pretty much the pars that the comp will receive; in this case: match location and history props that Route passes into the comps. Said match is the one that gave access to the match {object} inside the selector on collection.component: 
-/*
-const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state)
-});
-*/
+
 
 const mapDispatchToProps = dispatch => ({
   updateCollections: collectionsMap => 
