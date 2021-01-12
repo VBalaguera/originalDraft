@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import './menu-item.styles.scss';
+import { MenuItemContents, MenuItemContentsTitle, MenuItemContentsSubtitle } from './menu-item.styles'; 
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
   <div
@@ -14,10 +15,10 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
       backgroundImage: `url(${imageUrl})`
     }}
   />
-    <div className='contents'>
-      <h1 className='title'>{title.toUpperCase()}</h1>
-      <h2 className='subtitle'>SHOP NOW</h2>
-    </div>
+    <MenuItemContents>
+      <MenuItemContentsTitle>{title.toUpperCase()}</MenuItemContentsTitle>
+      <MenuItemContentsSubtitle>SHOP NOW</MenuItemContentsSubtitle>
+    </MenuItemContents>
   </div>
 );
 

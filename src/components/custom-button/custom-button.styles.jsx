@@ -20,6 +20,9 @@ const invertedButtonStyles = css`
     border: 1px solid black;
     font-family: initial;
     font-weight: 600; 
+    opacity: .5; 
+    position: absolute; 
+    bottom: 20%; 
       
   
     &:hover {
@@ -41,6 +44,23 @@ const googleSignInStyles = css`
       }
 `; 
 
+//here we use the showcase ones: 
+
+const showCaseButtonStyles = css`
+	border: 2px solid crimson;
+	background: transparent;
+	color: crimson; 
+	cursor: pointer;
+	font-weight: bold; 
+	transition: all .2s; 
+
+    &:hover {
+        background: crimson; 
+        color: white;
+        transition: all .2s; 
+    }
+`; 
+
 //now, we will write a function that will be called inside CustumButtonContainer; 
 const getButtonStyles = props => {
     //this will return different styles, depending on what we have; 
@@ -50,13 +70,23 @@ const getButtonStyles = props => {
         return googleSignInStyles; 
     }
 
-    return props.inverted ? invertedButtonStyles : buttonStyles; 
+    if (props.inverted) {
+        return invertedButtonStyles; 
+    } 
+
+    if (props.showcase) {
+        return showCaseButtonStyles; 
+    }
+    
+    else {
+        return buttonStyles;
+    } 
     //if we have inverted props, it will call its own styles: invertedButtonStyles; if not, we will go to the default buttonStyles 
 }
 
 //here, all .custom-button styles 
 export const CustomButtonContainer = styled.button`
-    min-width: 10rem;
+    min-width: 5rem;
     width: auto;
     height: 3rem;
     letter-spacing: 0.3px;

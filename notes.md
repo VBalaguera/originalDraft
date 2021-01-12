@@ -896,3 +896,40 @@ Now it will host our website. Takes forever by the way.
    
 
 SEARCH ABOUT STORING DATA IN BACKEND. USING FIREBASE OR NOT. 
+
+
+
+
+MODULE 16. WE’RE GOING TO USE FIREBASE TO STORE DATA. TACKLE ASYNC ACTIONS AND EVENTS TOO. 
+
+We've been using Firebase for auth. So far, all the data has been in the store. No biggie, no performance complications. But if you want a job, you need a database due to volume and/or multiple platforms using the same data. If we have A MOBILE APP AND A WEB APP and are using the same items, refering to the same data, streamlining and saving that data in one single source makes life easier. 
+
+So, Firestore time. 
+
+ABOUT THE FIRESTORE REFRESHER: 
+
+QueryReferences: a type of object, a request we make to firestore to give us something from the database. Firestore returns us two types of objects: references and snapshots. Of these objects, they can be either DOCUMENTS or COLLECTION versions. Firestore will always return us these objects, even if nothing exists at from that query. 
+
+A QueryReference object is an object that represents the current place in the db that we're querying. We get them by calling either: 
+  firestore.doc('/users/:userId');
+  firestore.collections('/users');
+
+The queryReference object does not have the actual data of the collection or document. It instead has properties that tell us details about it, or the method to get the Snapshot object which give us the data we are looking for. 
+
+We use documentRef objects to perform CRUD methods (create, retrieve, update, delete). DocumentRef methods are .set(), .get(), .update() and .delete(). 
+
+We can also add docs to collections using the collectionRef object using the .add(): collectionRef.add({//value: prop})
+
+We get the snapshotObject from the referenceObject using the .get(): documentRef.get() or collectionRef.get().
+
+documentRef returns a documentSnapshot object. said object allows us to check if a doc exists at this query using the .exists property, which returns a boolean. We can also get the actual properties on the object by calling the .data(), which returns a JSON of the document. 
+
+collectionRef returns a querySnapshot object. 
+
+This is a paradigm concept that is confusing at the beginning, but it could be worse. 
+
+recap about auth implementation from before, on App.js: 
+
+
+
+Snapshots and Security Rules. 

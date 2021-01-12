@@ -9,11 +9,9 @@ import './publications-overview.styles.scss';
 
 const PublicationsOverview = ({ publications }) => (
     <div className='publications-overview'>
-        {
-            publications.map(({id, ...otherPublicationProps}) => (
-                <PublicationPreview key={id} {...otherPublicationProps}/>
-            ))
-        }
+        {publications.map(({id, ...otherPublicationProps}) => (
+            <PublicationPreview key={id} {...otherPublicationProps} />
+        ))}
     </div>
 );
 

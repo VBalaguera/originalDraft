@@ -1,14 +1,16 @@
 //PUBLICATION PREVIEW EQUALS COLLECTION PREVIEW
 import React from 'react';
+import { withRouter } from 'react-router-dom'; 
 
 import PublicationItem from '../publication-item/publication-item.component'; 
 import './publication-preview.styles.scss';
 
-const PublicationPreview = ({title, items}) => (
+const PublicationPreview = ({title, items, history, match, routeName }) => (
 
     <div className='publications'>
-        <h1 className='title'>
-            {title.toUpperCase()}
+        <h1 className='title'
+            onClick={() => history.push(`${match.path}/${routeName}`)}
+            >{title.toUpperCase()}
         </h1>
         <div className='publications-previews'>
             {
@@ -21,4 +23,4 @@ const PublicationPreview = ({title, items}) => (
     </div>
 );
 
-export default PublicationPreview; 
+export default withRouter(PublicationPreview); 

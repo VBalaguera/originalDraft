@@ -8,13 +8,13 @@ import { selectFlagshipContents } from '../../redux/flagship/flagship.selectors'
 
 import FlagshipContent from '../flagship-content/flagship-content.component'; 
 
-import './flagship.styles.scss'; 
+import { FlagshipContainer, FlagshipTitle } from './flagship.styles'; 
 
 const Flagship = ({ contents }) => (
 
-            <div className='flagship'>
+            <FlagshipContainer>
               <div>
-                <h1 className='flagship-title'> This is the Flagship </h1>
+                <FlagshipTitle> This is the Flagship </FlagshipTitle>
               </div>
 
                 {
@@ -22,7 +22,7 @@ const Flagship = ({ contents }) => (
                         <FlagshipContent key={id} {...otherContentsProps}/>
                     ))
                 }
-        </div>
+        </FlagshipContainer>
 ); 
 
 const mapStateToProps = createStructuredSelector({

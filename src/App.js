@@ -27,15 +27,13 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 const Text = styled.div`
   color: red; 
-  font-size: 28px; 
+  font-size: 1rem; 
   text-align: center; 
   margin: .5rem; 
   font-weight: bold; 
   border: ${({isActive}) => isActive ? '1px solid black' : '3px dotted green'}; 
 `; 
-//this is styled.html element we want
-//since this is a string, we have to interpolate; 
-// interpolation: here we destructure props, isActive, and say that if isActive is true, we will want a 1px solid black border; if it is false, a 3px dotted green border
+
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -56,6 +54,7 @@ class App extends React.Component {
       }
 
       setCurrentUser(userAuth);
+
     });
   }
 

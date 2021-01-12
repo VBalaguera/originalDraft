@@ -1,14 +1,14 @@
 
-.main {
+/* .main {
 	display: flex;
 	width: 70%;
 	margin: auto auto 2rem auto;
 	min-height: 80vh;
     align-items: center;
-}
+} */
 
 
-.main__pitch {
+/* .main__pitch {
 	flex: 1;
 }
 .main_pitch_text h1 {
@@ -20,15 +20,15 @@
 	margin-top: 5px;
 	font-size: 22px;
 	color: black; 
-}
+} */
 
-.pointedWords {
+/* .pointedWords {
 	font-size: 3rem;
 	font-weight: 500;
 	color: crimson; 
 }
-
-.showcase {
+ */
+/* .showcase {
 	padding: 0px 0px 0px 100px;
 }
 .showcase-tour, .showcase-random {
@@ -51,24 +51,30 @@
 	background: crimson; 
 	color: white;
 	transition: all .5s; 
-}	
+}	 */
 
 .main_pitch-img {
-	flex: 1;
 	display: flex;
 	justify-content: center;
 	object-fit: cover; 
-    height: 60vh;
+	height: 40rem;
+	min-width: 30rem; 
     background: url("../../images/here there be monsters.png");
 	background-position: center;
 	background-repeat: no-repeat; 
 	background-size: contain; 
 }
 
+@media screen and (max-width: 900px) {
+	.main_pitch-img {
+		flex: none; 
+	}
+}
 
 
 
-@media screen and (max-width: 600px) {
+
+/* @media screen and (max-width: 600px) {
 
 	.showcase {
 		display: flex; 
@@ -89,4 +95,4 @@
 		padding: 1rem 0; 
 	}
 
-}
+} */

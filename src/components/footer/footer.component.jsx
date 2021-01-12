@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './footer.styles.scss';
+import { FooterContainer } from './footer.styles'; 
 
 class Footer extends React.Component {
     constructor(props) {
@@ -33,12 +33,12 @@ class Footer extends React.Component {
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
         return(
-            <div className='footer'>
-            <p className='footer-copyright-n-clock'>
+            <FooterContainer>
+                <p className='footer-copyright-n-clock'>
                 This is the footer. 2020. 
                 Today is {days[this.state.day]}, {months[this.state.month]} {this.state.date}, {this.state.year}. 
                 The time is {this.state.time}.</p>
-        </div>
+            </FooterContainer>
         )
     }
 }

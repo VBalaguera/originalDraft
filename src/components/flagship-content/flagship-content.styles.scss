@@ -1,5 +1,6 @@
 //FLAGSHIP CONTENT EQUALS MENU ITEM
 .flagship-content {
+    width: 75%;
     min-width: 25%; 
     height: 15rem; 
     flex: 1 1 auto; 
@@ -47,8 +48,8 @@
         background-position: center;
     }
 
-    .flagship-container {
-        height: 7rem; 
+ /*   .flagship-text {
+         height: 7rem; 
         padding: 0 2rem; 
         display: flex; 
         flex-direction: column;
@@ -56,7 +57,7 @@
         justify-content: center; 
         background-color: rgba($color: black, $alpha: 0.3);
         position: absolute; //background-image works this way
-        opacity: 0.8; 
+        opacity: 0.8;  
 
         .flagship-secTitle {
             font-size: 1.5rem;
@@ -67,5 +68,5 @@
         }
 
 
-    }
+    }*/
 }
