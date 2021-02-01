@@ -933,3 +933,8 @@ recap about auth implementation from before, on App.js:
 
 
 Snapshots and Security Rules. 
+
+
+
+
+

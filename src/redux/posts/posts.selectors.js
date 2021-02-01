@@ -10,7 +10,7 @@ export const selectPublications = createSelector(
 export const selectPublicationsForPreview = createSelector(
     [selectPublications],
     publications => 
-        publications ? Object.keys(publications).map(key => publications[key]) : []
+    publications ? Object.keys(publications).map(key => publications[key]) : []
 ); 
 
 export const selectPublication = publicationUrlParam => 

@@ -31,13 +31,12 @@ class PostsPage extends React.Component {
 
         const publicationsRef = firestore.collection('publications'); 
 
-        this.unsubscribeFromSnapshot = publicationsRef.onSnapshot(async snapshot => {
+        publicationsRef.get().then(snapshot => {
             const publicationsMap = convertPublicationsSnapshotToMap(snapshot);
-            
             updatePublications(publicationsMap); 
-
-            this.setState({ loading: false })
+            this.setState({ loading: false });
         }); 
+
     }
 
     render() {

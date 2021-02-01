@@ -55,6 +55,7 @@ const config = {
         items
       };
     });
+    console.log(transformedCollection); 
 
     return transformedCollection.reduce((accumulator, collection) => {
       accumulator[collection.title.toLowerCase()] = collection; 
@@ -73,11 +74,13 @@ const config = {
         items
       };
     });
+    console.log(transformedPublications); 
 
     return transformedPublications.reduce((accumulator, publication) => {
       accumulator[publication.title.toLowerCase()] = publication; 
       return accumulator; 
     }, {}); 
+    
   }; 
 
   firebase.initializeApp(config); 
